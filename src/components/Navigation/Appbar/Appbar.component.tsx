@@ -11,7 +11,7 @@ const AppBar = ({ isscrolledtotop }: { isscrolledtotop: boolean }) => {
   return (
     <AppbarContainer isscrolledtotop={isscrolledtotop}>
       <LogoImage src={rectLogo} onClick={ClickLogo} />
-      <MenuList />
+      <MenuList isscrolledtotop={isscrolledtotop} />
       {/* <HamburgerSideList /> */}
     </AppbarContainer>
   );

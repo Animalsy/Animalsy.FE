@@ -8,7 +8,7 @@ import {
   CiPassport1,
 } from "react-icons/ci";
 
-const MenuList = () => {
+const MenuList = ({ isscrolledtotop }: { isscrolledtotop: boolean }) => {
   const [servicesHover, setServicesHover] = useState<{
     button: boolean;
     body: boolean;
@@ -39,11 +39,12 @@ const MenuList = () => {
   return (
     <div style={{ position: "relative" }}>
       <MenuListComponent>
-        <MenuListItem to={"/"}>
+        <MenuListItem isscrolledtotop={isscrolledtotop} to={"/"}>
           <CiHome style={{ justifySelf: "center" }} /> Home
         </MenuListItem>
         {/* services */}
         <MenuListItem
+          isscrolledtotop={isscrolledtotop}
           to={"/services"}
           ref={servicesRef}
           onMouseEnter={() => {
@@ -58,6 +59,7 @@ const MenuList = () => {
           <CiBag1 style={{ justifySelf: "center" }} /> Services
         </MenuListItem>
         <MenuSubList
+          isscrolledtotop={isscrolledtotop}
           offset={hoverServicesOffset}
           isHovered={
             servicesHover.body === true || servicesHover.button === true
@@ -71,13 +73,22 @@ const MenuList = () => {
             }, 400);
           }}
         >
-          <MenuListItem to={"/"}>Services 1</MenuListItem>
-          <MenuListItem to={"/"}>Services 2</MenuListItem>
-          <MenuListItem to={"/"}>Services 3</MenuListItem>
-          <MenuListItem to={"/"}>Services 4</MenuListItem>
+          <MenuListItem isscrolledtotop={isscrolledtotop} to={"/"}>
+            Services 1
+          </MenuListItem>
+          <MenuListItem isscrolledtotop={isscrolledtotop} to={"/"}>
+            Services 2
+          </MenuListItem>
+          <MenuListItem isscrolledtotop={isscrolledtotop} to={"/"}>
+            Services 3
+          </MenuListItem>
+          <MenuListItem isscrolledtotop={isscrolledtotop} to={"/"}>
+            Services 4
+          </MenuListItem>
         </MenuSubList>
         {/* specials */}
         <MenuListItem
+          isscrolledtotop={isscrolledtotop}
           to={"/"}
           ref={specialsRef}
           onMouseEnter={() => {
@@ -92,6 +103,7 @@ const MenuList = () => {
           <CiDiscount1 style={{ justifySelf: "center" }} /> Specials
         </MenuListItem>
         <MenuSubList
+          isscrolledtotop={isscrolledtotop}
           offset={hoverSpecialsOffset}
           isHovered={specialsHover.body || specialsHover.button}
           onMouseEnter={() => {
@@ -103,17 +115,24 @@ const MenuList = () => {
             }, 400);
           }}
         >
-          <MenuListItem to={"/"}>Specials 1</MenuListItem>
-          <MenuListItem to={"/"}>Specials 2</MenuListItem>
-          <MenuListItem to={"/"}>Specials 3</MenuListItem>
-          <MenuListItem to={"/"}>Specials 4</MenuListItem>
+          <MenuListItem isscrolledtotop={isscrolledtotop} to={"/"}>
+            Specials 1
+          </MenuListItem>
+          <MenuListItem isscrolledtotop={isscrolledtotop} to={"/"}>
+            Specials 2
+          </MenuListItem>
+          <MenuListItem isscrolledtotop={isscrolledtotop} to={"/"}>
+            Specials 3
+          </MenuListItem>
+          <MenuListItem isscrolledtotop={isscrolledtotop} to={"/"}>
+            Specials 4
+          </MenuListItem>
         </MenuSubList>
-        <MenuListItem to={"/"}>
+        <MenuListItem isscrolledtotop={isscrolledtotop} to={"/"}>
           <CiPercent style={{ justifySelf: "center" }} /> Offers
         </MenuListItem>
-        <MenuListItem to={"/"}>
-          <CiPassport1 color="white" style={{ justifySelf: "center" }} />{" "}
-          Profile
+        <MenuListItem isscrolledtotop={isscrolledtotop} to={"/"}>
+          <CiPassport1 style={{ justifySelf: "center" }} /> Profile
         </MenuListItem>
       </MenuListComponent>
     </div>

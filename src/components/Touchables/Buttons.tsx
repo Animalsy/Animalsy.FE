@@ -7,18 +7,19 @@ type ButtonType = "search" | "menu" | "none";
 
 export const Button = ({
   children,
-  iconColor = "#fff",
+  backgroundColor,
   buttonType = "none",
   onClick,
   style,
+  textColor,
 }: {
   children: React.ReactNode;
   buttonType?: ButtonType;
-  iconColor?: string;
+  backgroundColor?: string;
+  textColor?: string;
   onClick?: ButtonHTMLAttributes<{}>["onClick"];
   style?: ButtonHTMLAttributes<{}>["style"];
 }) => {
-  const { theme } = useAppTheme();
   const RenderIcon = ({ type }: { type: ButtonType }) => {
     switch (type) {
       case "search":
@@ -30,6 +31,8 @@ export const Button = ({
   };
   return (
     <ButtonComponent
+      backgroundColor={backgroundColor}
+      textColor={textColor}
       style={{ ...style }}
       onClick={
         onClick

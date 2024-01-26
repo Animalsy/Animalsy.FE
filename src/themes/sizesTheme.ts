@@ -11,14 +11,14 @@ const smallFontSizeTheme = {
 };
 
 const mediumFontSizeTheme = {
-  title: "2.5em",
-  subtitle: "1.5em",
+  title: "2em",
+  subtitle: "1em",
   body: ".7em",
 };
 
 const largeFontSizeTheme = {
-  title: "3.5em",
-  subtitle: "2em",
+  title: "2.5em",
+  subtitle: "1.5em",
   body: "1em",
 };
 

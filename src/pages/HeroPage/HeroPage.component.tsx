@@ -3,11 +3,16 @@ import {
   ContentContainer,
   VideoContainer,
   HeroContainer,
+  SmallContent,
 } from "./HeroPage.styles";
 import TextComponents from "../../components/TextComponents";
 import PageTemplate from "../pageTemplate";
 import { Button } from "../../components/Touchables/Buttons";
 import { useNavigate } from "react-router-dom";
+import { TopRatedEstablishments } from "../../static/establishments";
+import AppSizes from "../../static/sizes";
+import { SmallEstablishmentDisplay } from "../../components/Displays/SmallEstablishmentDisplay/SmallEstablishmentDisplay";
+import FavCategoriesSection from "../../components/Displays/CategoriesDisplay/FavCategoriesSection";
 
 const HeroPage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -19,7 +24,10 @@ const HeroPage = () => {
           <source src={"/src/assets/video/video.mp4"} type={"video/mp4"} />
         </VideoContainer>
         <ContentContainer>
-          <TextComponents.Title opposite style={{ fontFamily: "Allura" }}>
+          <TextComponents.Title
+            opposite
+            style={{ fontFamily: "Allura", lineHeight: 1 }}
+          >
             Welcome to Your Pet Haven
           </TextComponents.Title>
           <TextComponents.Subtitle opposite>
@@ -32,17 +40,40 @@ const HeroPage = () => {
             your life, we're here to guide you on the exciting journey of pet
             companionship.
           </TextComponents.Body>
-          <Button
-            onClick={() => {
-              navigate("/services", { state: { from: "hero" } });
-            }}
-            buttonType="search"
-          >
-            Search for services near you
-          </Button>
+          <SmallContent>
+            <Button
+              onClick={() => {
+                navigate("/services", { state: { from: "hero" } });
+              }}
+              buttonType="search"
+            >
+              Search for services near you
+            </Button>
+            <Button
+              backgroundColor="#ffffff45"
+              textColor={"#203e59"}
+              onClick={() => {
+                navigate("/faq", { state: { from: "hero" } });
+              }}
+            >
+              Read FAQ to find out more obout us.
+            </Button>
+          </SmallContent>
+          <SmallContent direction="row">
+            {TopRatedEstablishments.map((establishment) => {
+              return (
+                <SmallEstablishmentDisplay
+                  establishment={establishment}
+                  key={establishment.id}
+                />
+              );
+            })}
+          </SmallContent>
         </ContentContainer>
       </HeroContainer>
-      <div style={{ height: "300vh" }}></div>
+      {/* Popular categories */}
+      <FavCategoriesSection />
+      <div style={{ height: "100vh" }}></div>
     </PageTemplate>
   );
 };

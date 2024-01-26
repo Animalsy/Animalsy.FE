@@ -11,7 +11,7 @@ export const MenuListComponent = styled.ul`
   }
 `;
 
-export const MenuListItem = styled(Link)`
+export const MenuListItem = styled(Link)<{ isscrolledtotop?: boolean }>`
   list-style: none;
   margin: 0 0.1rem;
   padding: 0.1rem 1.5rem;
@@ -23,7 +23,10 @@ export const MenuListItem = styled(Link)`
   align-items: center;
   display: flex;
   text-decoration: none;
-  color: ${(props) => props.theme.colors.textOpposite};
+  color: ${(props) =>
+    props.isscrolledtotop
+      ? props.theme.colors.primaryDark
+      : props.theme.colors.textOpposite};
 
   &:hover {
     background-color: #ffffff50;
@@ -31,7 +34,16 @@ export const MenuListItem = styled(Link)`
   }
 `;
 
-export const MenuSubList = styled.div<{ isHovered: boolean; offset?: number }>`
+export const MenuSubList = styled.div<{
+  isHovered: boolean;
+  offset?: number;
+  isscrolledtotop: boolean;
+}>`
+  padding: 0.1rem;
+  border-radius: 0.1rem;
+  background-color: ${(props) =>
+    props.isscrolledtotop ? "#FFFFFF85" : props.theme.colors.primaryLight};
+
   overflow: hidden; /* Hide the element content, while height = 0 */
   height: ${(props) => (props.isHovered ? "auto" : "0")};
   opacity: ${(props) => (props.isHovered ? "1" : "0")};
