@@ -10,8 +10,8 @@ const FavCategoriesSection = () => {
         Our customers favorites
       </TextComponents.Title>
       <HorizontalContainer>
-        {favouriteCategories.map((category) => {
-          return <SingleFavCategory category={category} />;
+        {favouriteCategories.map((category, i) => {
+          return <SingleFavCategory category={category} key={i} />;
         })}
         <SingleFavCategory
           objectFit="contain"

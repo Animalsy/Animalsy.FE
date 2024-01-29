@@ -15,7 +15,7 @@ export const WhyChooseUsSection = () => {
           <SmallInfoBoxContainer InfoArr={infoAboutUs} />
         </GridInfo>
       </div>
-      <div>
+      <div style={{ alignSelf: "center" }}>
         <TextComponents.Title style={{ textAlign: "center" }} accent>
           Why pet lovers choose us?
         </TextComponents.Title>

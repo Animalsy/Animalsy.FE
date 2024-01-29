@@ -14,6 +14,8 @@ import { SmallEstablishmentDisplay } from "../../components/Displays/SmallEstabl
 import FavCategoriesSection from "./Sections/CategoriesDisplay/FavCategoriesSection";
 import { WhyChooseUsSection } from "./Sections/WhyChooseUs/WhyChooseUs.section";
 import herovideo from "../../assets/video/video.mp4";
+import StroryServices from "./Sections/Story&Services/StroryServices.section";
+import Spacer from "../../components/containers/spacer";
 
 const HeroPage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -75,7 +77,11 @@ const HeroPage = () => {
       {/* POPULAR CATEGORIES */}
       <FavCategoriesSection />
       {/* WHY CHOOSE US */}
+      <Spacer height={2} />
       <WhyChooseUsSection />
+      {/* STORY JURNEY AND SERVICES */}
+      <Spacer height={2} />
+      <StroryServices />
       <div style={{ height: "100vh" }}></div>
     </PageTemplate>
   );

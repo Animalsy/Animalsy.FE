@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import AppSizes from "../../../../static/sizes";
 
-export const ChooseContainer = styled.section`
+export const ChooseContainer = styled.section<{ reverse?: boolean }>`
   display: grid;
   flex-direction: row;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   padding: 1rem;
+  direction: ${(props) => (props.reverse ? "rtl" : "ltr")};
 
   @media (max-width: ${AppSizes.breakpoints.large}px) {
     display: flex;
@@ -19,7 +20,6 @@ export const ChooseContainer = styled.section`
     flex: 1;
     align-items: center;
     justify-content: center;
-    background-color: ${(props) => props.theme.colors.secondaryLight};
     padding: 2rem 3rem;
     border-radius: 1rem;
     aspect-ratio: 1/1;
@@ -43,7 +43,6 @@ export const GridInfo = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
   aspect-ratio: 1;
-
   & > div {
     background-color: ${(props) => props.theme.colors.secondaryLight};
     border-radius: 1rem;
