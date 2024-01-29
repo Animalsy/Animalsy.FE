@@ -51,6 +51,7 @@ export const GridInfo = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-shadow: ${(props) => props.theme.shadow.medium};
 
     @media (max-width: ${AppSizes.breakpoints.small}px) {
       flex-direction: column;

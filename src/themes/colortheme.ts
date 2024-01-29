@@ -10,9 +10,9 @@ const LightColorTheme = {
   success: "#3CFF3C",
   warning: "#FFD13C",
   info: "#3CC1FF",
-  background: "#F5F5F5",
-  text: "#000000",
-  textOpposite: "#FFFFFF",
+  background: "#f8fafc",
+  text: "#ffffff",
+  textOpposite: "#000000",
 };
 const DarkColorTheme = {
   primaryDark: "#001e2f",
@@ -26,9 +26,9 @@ const DarkColorTheme = {
   success: "#3CFF3C",
   warning: "#FFD13C",
   info: "#3CC1FF",
-  background: "#F5F5F5",
+  background: "#001e2f",
   text: "#F5F5F5",
-  textOpposite: "#000000",
+  textOpposite: "#F5F5F5",
 };
 
 export type IColorTheme = typeof DarkColorTheme;

@@ -16,6 +16,7 @@ import { WhyChooseUsSection } from "./Sections/WhyChooseUs/WhyChooseUs.section";
 import herovideo from "../../assets/video/video.mp4";
 import StroryServices from "./Sections/Story&Services/StroryServices.section";
 import Spacer from "../../components/containers/spacer";
+import CollaboratorsAboutUs from "./Sections/CollaboratorsAboutUs/CollaboratorsAboutUs.section";
 
 const HeroPage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -27,16 +28,13 @@ const HeroPage = () => {
           <source src={herovideo} type={"video/mp4"} />
         </VideoContainer>
         <ContentContainer>
-          <TextComponents.Title
-            opposite
-            style={{ fontFamily: "Allura", lineHeight: 1 }}
-          >
+          <TextComponents.Title style={{ fontFamily: "Allura", lineHeight: 1 }}>
             Welcome to Your Pet Haven
           </TextComponents.Title>
-          <TextComponents.Subtitle opposite>
+          <TextComponents.Subtitle>
             Your Trusted Source for Pet Care Tips and Companionship
           </TextComponents.Subtitle>
-          <TextComponents.Body opposite>
+          <TextComponents.Body>
             At Your Pet Haven, we understand that pets are more than just
             animals – they're cherished members of our families. Whether you're
             a seasoned pet owner or considering bringing a new furry friend into
@@ -82,7 +80,9 @@ const HeroPage = () => {
       {/* STORY JURNEY AND SERVICES */}
       <Spacer height={2} />
       <StroryServices />
-      <div style={{ height: "100vh" }}></div>
+      {/* COLLABORATORS ABOUT US */}
+      <Spacer height={2} />
+      <CollaboratorsAboutUs />
     </PageTemplate>
   );
 };

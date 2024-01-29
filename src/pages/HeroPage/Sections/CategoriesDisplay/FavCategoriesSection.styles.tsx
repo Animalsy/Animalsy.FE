@@ -19,14 +19,18 @@ export const HorizontalContainer = styled.div`
   justify-content: center;
 `;
 
-export const ContainerCategoryDisplay = styled.div`
+export const ContainerCategoryDisplay = styled.div<{
+  mode?: string;
+}>`
   display: flex;
   min-width: 3rem;
   flex-direction: column;
   align-items: center;
   aspect-ratio: 1/1.4;
-  background-color: #ffffff55;
+  background-color: ${(props) =>
+    props.mode !== "dark" ? "#00000015" : "#ffffff45"};
   border-radius: 0.5rem;
+  box-shadow: ${(props) => props.theme.shadow.light};
   padding: 1rem;
 `;
 

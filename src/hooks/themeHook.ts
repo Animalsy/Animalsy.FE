@@ -12,6 +12,10 @@ export const useAppTheme = () => {
     theme === "light" ? setMode("dark") : setMode("light");
   };
 
+  const setThemeVariant = (theme: "light" | "dark") => {
+    setMode(theme);
+  };
+
   const toggleTextSize = (size: "small" | "medium" | "large") => {
     window.localStorage.setItem("textTheme", size);
     setTextSize(size);
@@ -23,5 +27,5 @@ export const useAppTheme = () => {
     localTheme && setTheme(localTheme);
     localTextTheme && setTextSize(localTextTheme);
   }, []);
-  return { theme, themeToggler, toggleTextSize, textSize };
+  return { theme, themeToggler, toggleTextSize, textSize, setThemeVariant };
 };

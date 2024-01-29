@@ -5,6 +5,7 @@ import {
   ImageContainer,
 } from "./FavCategoriesSection.styles";
 import { squareLogo } from "../../../../assets/logo";
+import { useAppTheme } from "../../../../hooks/themeHook";
 
 const SingleFavCategory = ({
   category,
@@ -13,8 +14,9 @@ const SingleFavCategory = ({
   category: IFavCategoryDisplay;
   objectFit?: "contain";
 }) => {
+  const { theme } = useAppTheme();
   return (
-    <ContainerCategoryDisplay>
+    <ContainerCategoryDisplay mode={theme}>
       <ImageContainer>
         <img
           src={category.image ? category.image : squareLogo}

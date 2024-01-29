@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
 
 
 &:root{
-
+    background-color: ${(props) => props.theme.colors.background};
     @media (max-width: ${AppSizes.breakpoints.small}) {
         font-size: 1rem;
     }
