@@ -32,6 +32,8 @@ export const ChooseContainer = styled.section`
   }
   & > div:nth-child(1) {
     background-color: transparent !important;
+    margin: 0;
+    padding: 0;
   }
 `;
 
@@ -54,6 +56,8 @@ export const GridInfo = styled.div`
       flex-direction: column;
       width: 100%;
       aspect-ratio: 1;
+      padding: 0;
+      margin: 0;
     }
 
     @media (max-width: ${AppSizes.breakpoints.medium}px) {
