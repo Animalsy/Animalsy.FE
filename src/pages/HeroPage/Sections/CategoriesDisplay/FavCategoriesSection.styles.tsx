@@ -15,8 +15,8 @@ export const HorizontalContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
   gap: 1rem 1rem;
-
   align-items: center;
+  justify-content: center;
 `;
 
 export const ContainerCategoryDisplay = styled.div`

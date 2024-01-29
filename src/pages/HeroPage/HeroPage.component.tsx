@@ -12,7 +12,8 @@ import { useNavigate } from "react-router-dom";
 import { TopRatedEstablishments } from "../../static/establishments";
 import AppSizes from "../../static/sizes";
 import { SmallEstablishmentDisplay } from "../../components/Displays/SmallEstablishmentDisplay/SmallEstablishmentDisplay";
-import FavCategoriesSection from "../../components/Displays/CategoriesDisplay/FavCategoriesSection";
+import FavCategoriesSection from "./Sections/CategoriesDisplay/FavCategoriesSection";
+import { WhyChooseUsSection } from "./Sections/WhyChooseUs/WhyChooseUs.section";
 
 const HeroPage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -71,8 +72,10 @@ const HeroPage = () => {
           </SmallContent>
         </ContentContainer>
       </HeroContainer>
-      {/* Popular categories */}
+      {/* POPULAR CATEGORIES */}
       <FavCategoriesSection />
+      {/* WHY CHOOSE US */}
+      <WhyChooseUsSection />
       <div style={{ height: "100vh" }}></div>
     </PageTemplate>
   );
