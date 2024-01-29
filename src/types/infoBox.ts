@@ -1,5 +1,5 @@
 export type IInfoBox = {
-  icon: string;
+  icon: any;
   title: string;
   subtitle: string;
 };

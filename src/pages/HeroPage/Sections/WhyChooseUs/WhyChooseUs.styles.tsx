@@ -8,15 +8,16 @@ export const ChooseContainer = styled.section`
   gap: 1rem;
   padding: 1rem;
 
-  @media (max-width: ${AppSizes.breakpoints.small}px) {
+  @media (max-width: ${AppSizes.breakpoints.large}px) {
     display: flex;
     flex-direction: column-reverse;
   }
+
   & > div {
     display: flex;
     flex-direction: column;
     flex: 1;
-
+    align-items: center;
     justify-content: center;
     background-color: ${(props) => props.theme.colors.secondaryLight};
     padding: 2rem 3rem;
@@ -26,7 +27,7 @@ export const ChooseContainer = styled.section`
     @media (max-width: ${AppSizes.breakpoints.small}px) {
       padding: 0.5rem;
     }
-    @media (max-width: ${AppSizes.breakpoints.medium}px) {
+    @media (max-width: ${AppSizes.breakpoints.large}px) {
       aspect-ratio: 2/1;
     }
   }
@@ -55,15 +56,16 @@ export const GridInfo = styled.div`
     @media (max-width: ${AppSizes.breakpoints.small}px) {
       flex-direction: column;
       width: 100%;
-      aspect-ratio: 1;
-      padding: 0;
       margin: 0;
+      padding: 0 2rem;
     }
 
     @media (max-width: ${AppSizes.breakpoints.medium}px) {
       flex-direction: column;
       width: 100%;
       aspect-ratio: 2/1;
+
+      padding: 2rem 0;
     }
   }
 
@@ -71,5 +73,8 @@ export const GridInfo = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+  }
+  @media (max-width: ${AppSizes.breakpoints.medium}px) {
+    aspect-ratio: unset;
   }
 `;

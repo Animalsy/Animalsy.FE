@@ -4,10 +4,18 @@ import TextComponents from "../../TextComponents";
 export const SmallInfoBox = ({ info }: { info: IInfoBox }) => {
   return (
     <div>
+      <img
+        src={info.icon}
+        style={{ aspectRatio: 1, width: "20%", objectFit: "contain" }}
+      />
       <TextComponents.Subtitle size={1} style={{ textAlign: "center" }} accent>
         {info.title}
       </TextComponents.Subtitle>
-      <TextComponents.Body style={{ textAlign: "center" }} size={0.8} opposite>
+      <TextComponents.Body
+        style={{ textAlign: "center", margin: "0 2rem" }}
+        size={0.8}
+        opposite
+      >
         {info.subtitle}
       </TextComponents.Body>
     </div>
