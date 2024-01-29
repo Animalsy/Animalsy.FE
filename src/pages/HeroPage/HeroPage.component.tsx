@@ -13,6 +13,7 @@ import { TopRatedEstablishments } from "../../static/establishments";
 import { SmallEstablishmentDisplay } from "../../components/Displays/SmallEstablishmentDisplay/SmallEstablishmentDisplay";
 import FavCategoriesSection from "./Sections/CategoriesDisplay/FavCategoriesSection";
 import { WhyChooseUsSection } from "./Sections/WhyChooseUs/WhyChooseUs.section";
+import herovideo from "../../assets/video/video.mp4";
 
 const HeroPage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -21,7 +22,7 @@ const HeroPage = () => {
     <PageTemplate>
       <HeroContainer>
         <VideoContainer ref={videoRef} autoPlay muted loop>
-          <source src={"/src/assets/video/video.mp4"} type={"video/mp4"} />
+          <source src={herovideo} type={"video/mp4"} />
         </VideoContainer>
         <ContentContainer>
           <TextComponents.Title
