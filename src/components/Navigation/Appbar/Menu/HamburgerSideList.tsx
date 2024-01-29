@@ -1,4 +1,3 @@
-import React from "react";
 import { MenuListComponent } from "./menu.styles";
 
 const HamburgerSideList = () => {

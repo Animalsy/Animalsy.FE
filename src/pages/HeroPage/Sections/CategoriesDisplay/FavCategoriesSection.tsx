@@ -1,4 +1,3 @@
-import React from "react";
 import { HorizontalContainer, Section } from "./FavCategoriesSection.styles";
 import TextComponents from "../../../../components/TextComponents";
 import { favouriteCategories } from "../../../../static/FavouriteCategories";

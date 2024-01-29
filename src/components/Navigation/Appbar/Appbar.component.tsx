@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { rectLogo } from "../../../assets/logo";
 import { AppbarContainer, LogoImage } from "./Appbar.styles";
 import MenuList from "./Menu/MenuList";

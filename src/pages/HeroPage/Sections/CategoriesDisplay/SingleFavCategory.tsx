@@ -1,4 +1,3 @@
-import React from "react";
 import { IFavCategoryDisplay } from "../../../../types/favCategoryDisplay";
 import TextComponents from "../../../../components/TextComponents";
 import {

@@ -1,5 +1,3 @@
-import React from "react";
-
 const SectionList = () => {
   return <div>SectionList</div>;
 };

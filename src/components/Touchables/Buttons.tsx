@@ -1,7 +1,6 @@
 import React, { ButtonHTMLAttributes } from "react";
 import { ButtonComponent } from "./Buttons.styles";
 import { CiSearch } from "react-icons/ci";
-import { useAppTheme } from "../../hooks/themeHook";
 
 type ButtonType = "search" | "menu" | "none";
 

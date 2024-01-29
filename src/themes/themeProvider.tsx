@@ -9,7 +9,7 @@ export const AppThemeProvider = (props: { children: React.ReactNode }) => {
   const [testSizeTheme, setTestSizeTheme] = useState(SizeTheme.textMedium);
 
   useEffect(() => {
-    window.addEventListener("resize", (event) => {
+    window.addEventListener("resize", () => {
       const size = window.innerWidth;
       if (size < AppSizes.breakpoints.small) {
         toggleTextSize("small");
