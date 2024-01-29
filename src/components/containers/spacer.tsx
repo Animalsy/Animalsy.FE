@@ -1,5 +1,3 @@
-import React from "react";
-
 const Spacer = ({ height, width }: { height?: number; width?: number }) => {
   return (
     <div

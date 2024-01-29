@@ -1,4 +1,3 @@
-import React from "react";
 import { IInfoBox } from "../../../types/infoBox";
 import TextComponents from "../../TextComponents";
 

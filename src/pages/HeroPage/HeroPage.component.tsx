@@ -10,7 +10,6 @@ import PageTemplate from "../pageTemplate";
 import { Button } from "../../components/Touchables/Buttons";
 import { useNavigate } from "react-router-dom";
 import { TopRatedEstablishments } from "../../static/establishments";
-import AppSizes from "../../static/sizes";
 import { SmallEstablishmentDisplay } from "../../components/Displays/SmallEstablishmentDisplay/SmallEstablishmentDisplay";
 import FavCategoriesSection from "./Sections/CategoriesDisplay/FavCategoriesSection";
 import { WhyChooseUsSection } from "./Sections/WhyChooseUs/WhyChooseUs.section";

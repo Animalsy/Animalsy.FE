@@ -1,4 +1,3 @@
-import React from "react";
 import { ChooseContainer, GridInfo } from "./WhyChooseUs.styles";
 import TextComponents from "../../../../components/TextComponents";
 import { Button } from "../../../../components/Touchables/Buttons";
