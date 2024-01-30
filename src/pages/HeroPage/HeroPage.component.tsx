@@ -81,7 +81,6 @@ const HeroPage = () => {
       <Spacer height={2} />
       <StroryServices />
       {/* COLLABORATORS ABOUT US */}
-      <Spacer height={2} />
       <CollaboratorsAboutUs />
     </PageTemplate>
   );

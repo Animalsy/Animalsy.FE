@@ -1,8 +1,9 @@
 export type IComentsAboutUs = {
+  date: string;
+  userName: string;
+  userAvatarUrl: string | null;
   rating: number;
-  comment: string;
-};
-export type GoogleAPIRating = {
-  rating: number;
-  comment: string;
+  images: string[];
+  reviewId: string;
+  comment?: string | undefined;
 };

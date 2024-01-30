@@ -1,4 +1,3 @@
-import heroAboutUsInfoIcons from "../assets/heroAboutUsInfoIcons";
 import { ourServicesIcons } from "../assets/ourServicesIcons";
 import { IInfoBox } from "../types/infoBox";
 

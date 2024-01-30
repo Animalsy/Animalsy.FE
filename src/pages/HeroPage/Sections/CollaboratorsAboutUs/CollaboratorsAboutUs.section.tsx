@@ -4,8 +4,8 @@ import ImageOfCollaborator from "../../../../assets/pictureOfColaborator.png";
 import ComentsAboutUs from "./ComentsAboutUs";
 const CollaboratorsAboutUs = () => {
   return (
-    <ChooseContainer reverse>
-      <div>
+    <ChooseContainer>
+      <div style={{ alignSelf: "center" }}>
         <img
           src={ImageOfCollaborator}
           alt="pictureOfColaborator"
@@ -13,12 +13,13 @@ const CollaboratorsAboutUs = () => {
         />
       </div>
       <div style={{ alignSelf: "center" }}>
-        <TextComponents.Title style={{ textAlign: "center" }} accent>
+        <TextComponents.Title size={1.5} style={{ textAlign: "center" }} accent>
           What Our Colaborators Say About Us
         </TextComponents.Title>
         {/* comments about us */}
         <ComentsAboutUs />
         {/* Google rating of our page + pictures of people if possible */}
+        <div>over all rating</div>
       </div>
     </ChooseContainer>
   );

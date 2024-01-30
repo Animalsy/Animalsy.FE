@@ -40,6 +40,7 @@ export const Text = styled.h4<{
   opposite?: boolean;
   accent?: boolean;
   color?: string;
+  maxLines?: number;
 }>`
   font-size: ${(props) =>
     props.size ? `${props.size}em` : props.theme.textSize.body};
@@ -54,4 +55,5 @@ export const Text = styled.h4<{
   text-align: left;
   display: flex;
   align-items: center;
+  line-clamp: ${(props) => (props.maxLines ? props.maxLines : "none")};
 `;
