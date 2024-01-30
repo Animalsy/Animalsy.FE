@@ -26,3 +26,18 @@ export const Header = styled.div`
   justify-content: space-between;
   width: 100%;
 `;
+
+export const RatingImage = styled.img`
+  width: 2rem;
+  aspect-ratio: 1;
+  border: ${(props) => `0.3rem solid ${props.theme.colors.background}`};
+  border-radius: 3rem;
+  margin-right: -1.5rem;
+`;
+
+export const RatingContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+`;

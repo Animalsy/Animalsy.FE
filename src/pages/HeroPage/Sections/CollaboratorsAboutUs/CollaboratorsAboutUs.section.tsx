@@ -2,6 +2,8 @@ import { ChooseContainer } from "../WhyChooseUs/WhyChooseUs.styles";
 import TextComponents from "../../../../components/TextComponents";
 import ImageOfCollaborator from "../../../../assets/pictureOfColaborator.png";
 import ComentsAboutUs from "./ComentsAboutUs";
+import OverallRating from "./overallRating";
+import Spacer from "../../../../components/containers/spacer";
 const CollaboratorsAboutUs = () => {
   return (
     <ChooseContainer>
@@ -19,7 +21,8 @@ const CollaboratorsAboutUs = () => {
         {/* comments about us */}
         <ComentsAboutUs />
         {/* Google rating of our page + pictures of people if possible */}
-        <div>over all rating</div>
+        <Spacer height={1} />
+        <OverallRating />
       </div>
     </ChooseContainer>
   );
