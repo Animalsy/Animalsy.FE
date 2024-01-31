@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NavigationComponents from "../components/Navigation";
+import FooterSection from "../components/Navigation/footer/FooterSection";
 
 const PageTemplate = (props: {
   children: React.ReactNode;
@@ -33,6 +34,7 @@ const PageTemplate = (props: {
     >
       <NavigationComponents.AppBar isscrolledtotop={isScrolled} />
       {props.children}
+      <FooterSection />
     </div>
   );
 };

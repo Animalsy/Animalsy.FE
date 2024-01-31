@@ -29,16 +29,16 @@ const HeroPage = () => {
         </VideoContainer>
         <ContentContainer>
           <TextComponents.Title style={{ fontFamily: "Allura", lineHeight: 1 }}>
-            Welcome to Your Pet Haven
+            Welcome to Animalsy
           </TextComponents.Title>
           <TextComponents.Subtitle>
             Your Trusted Source for Pet Care Tips and Companionship
           </TextComponents.Subtitle>
           <TextComponents.Body>
-            At Your Pet Haven, we understand that pets are more than just
-            animals – they're cherished members of our families. Whether you're
-            a seasoned pet owner or considering bringing a new furry friend into
-            your life, we're here to guide you on the exciting journey of pet
+            At Animalsy, we understand that pets are more than just animals –
+            they're cherished members of our families. Whether you're a seasoned
+            pet owner or considering bringing a new furry friend into your life,
+            we're here to guide you on the exciting journey of pet
             companionship.
           </TextComponents.Body>
           <SmallContent>
