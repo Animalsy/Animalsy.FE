@@ -17,7 +17,9 @@ const FooterSection = () => {
           Your Pet Haven: Elevating Pet Care. Seamless, Exclusive, Always There
         </TextComponents.Body>
       </div>
-      <NavigationFooter style={{ flex: 3 }}>
+      <NavigationFooter
+        style={{ flex: 3, alignItems: "flex-start", display: "flex" }}
+      >
         <div>
           <TextComponents.Subtitle size={0.8} color={theme.colors.primaryDark}>
             Usfull links
