@@ -43,6 +43,8 @@ export const GridInfo = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
   aspect-ratio: 1;
+  min-height: 10rem;
+
   & > div {
     background-color: ${(props) => props.theme.colors.secondaryLight};
     border-radius: 1rem;

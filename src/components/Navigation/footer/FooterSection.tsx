@@ -2,9 +2,15 @@ import { useTheme } from "styled-components";
 import { squareLogo } from "../../../assets/logo";
 import TextComponents from "../../TextComponents";
 import { FooterContainer, NavigationFooter } from "./FooterSection.styles";
+import { useNavigate } from "react-router-dom";
 
 const FooterSection = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
+
+  const handleNavigate = (to: string) => {
+    navigate(to);
+  };
   return (
     <FooterContainer>
       <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
@@ -24,19 +30,83 @@ const FooterSection = () => {
           <TextComponents.Subtitle size={0.8} color={theme.colors.primaryDark}>
             Usfull links
           </TextComponents.Subtitle>
-          <TextComponents.Body size={0.6}>About Us</TextComponents.Body>
-          <TextComponents.Body size={0.6}>Events</TextComponents.Body>
-          <TextComponents.Body size={0.6}>Blogs</TextComponents.Body>
-          <TextComponents.Body size={0.6}>FAQ</TextComponents.Body>
+          <TextComponents.Body
+            type={"Link"}
+            onClick={() => {
+              handleNavigate("/aboutUs");
+            }}
+            size={0.6}
+          >
+            About Us
+          </TextComponents.Body>
+          <TextComponents.Body
+            size={0.6}
+            type={"Link"}
+            onClick={() => {
+              handleNavigate("/events");
+            }}
+          >
+            Events
+          </TextComponents.Body>
+          <TextComponents.Body
+            size={0.6}
+            type={"Link"}
+            onClick={() => {
+              handleNavigate("/blog");
+            }}
+          >
+            Blogs
+          </TextComponents.Body>
+          <TextComponents.Body
+            size={0.6}
+            type={"Link"}
+            onClick={() => {
+              handleNavigate("/faq");
+            }}
+          >
+            FAQ
+          </TextComponents.Body>
         </div>
         <div>
           <TextComponents.Subtitle size={0.8} color={theme.colors.primaryDark}>
             Services
           </TextComponents.Subtitle>
-          <TextComponents.Body size={0.6}>Home</TextComponents.Body>
-          <TextComponents.Body size={0.6}>Specials</TextComponents.Body>
-          <TextComponents.Body size={0.6}>Vets</TextComponents.Body>
-          <TextComponents.Body size={0.6}>Groomers</TextComponents.Body>
+          <TextComponents.Body
+            size={0.6}
+            type={"Link"}
+            onClick={() => {
+              handleNavigate("/home");
+            }}
+          >
+            Home
+          </TextComponents.Body>
+          <TextComponents.Body
+            size={0.6}
+            type={"Link"}
+            onClick={() => {
+              handleNavigate("/services/specialoffer");
+            }}
+          >
+            Specials
+          </TextComponents.Body>
+          <TextComponents.Body
+            size={0.6}
+            type={"Link"}
+            onClick={() => {
+              handleNavigate("/services/vet");
+            }}
+          >
+            Vets
+          </TextComponents.Body>
+          <TextComponents.Body
+            size={0.6}
+            type={"Link"}
+            onClick={() => {
+              handleNavigate("/services/groomer");
+            }}
+          >
+            Groomers
+          </TextComponents.Body>
         </div>
         <div>
           <TextComponents.Subtitle size={0.8} color={theme.colors.primaryDark}>

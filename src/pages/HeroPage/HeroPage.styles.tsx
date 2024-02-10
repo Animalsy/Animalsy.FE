@@ -6,7 +6,6 @@ export const HeroContainer = styled.div`
   width: 100%;
   min-height: 100dvh;
   height: calc(100% - ${AppSizes.appbarHeight});
-  max-height: 100dvh;
   justify-content: flex-start;
   align-items: center;
   padding-top: ${AppSizes.appbarHeight};
@@ -35,7 +34,7 @@ export const ContentContainer = styled.section`
   margin-left: 4rem;
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-start; */
+  overflow: hidden;
   padding-top: 20%;
 
   @media (max-width: ${AppSizes.breakpoints.small}px) {

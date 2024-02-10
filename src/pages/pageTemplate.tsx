@@ -30,10 +30,13 @@ const PageTemplate = (props: {
       style={{
         paddingTop: props.offsetTop ? `${props.offsetTop}rem` : 0,
         zIndex: 10000,
+        minHeight: "100dvh",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <NavigationComponents.AppBar isscrolledtotop={isScrolled} />
-      {props.children}
+      <div style={{ flex: 1 }}>{props.children}</div>
       <FooterSection />
     </div>
   );
