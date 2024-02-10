@@ -24,7 +24,7 @@ export const commentsAboutUs: IComentsAboutUs[] = [
   {
     date: "2021-05-10",
     images: [],
-    rating: 3,
+    rating: 5,
     reviewId: "10",
     userAvatarUrl: "https://i.pravatar.cc/300?img=10",
     userName: "Alex Johnson",
