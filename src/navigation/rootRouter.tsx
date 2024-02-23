@@ -9,8 +9,20 @@ const rootRouter = createBrowserRouter([
     element: <HeroPage />,
   },
   {
-    path: "/services",
-    element: <ServicesPage />,
+    path: "/services/",
+    element: <ServicesPage type="services" />,
+  },
+  {
+    path: "/services/:category",
+    element: <ServicesPage type="services" />,
+  },
+  {
+    path: "/specials/",
+    element: <ServicesPage type="specials" />,
+  },
+  {
+    path: "/specials/:category",
+    element: <ServicesPage type="specials" />,
   },
 
   {

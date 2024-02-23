@@ -21,6 +21,7 @@ export const ButtonComponent = styled.button<{
   color: ${(props) =>
     props.textColor ? props.textColor : props.theme.colors.primaryLight};
   text-transform: capitalize;
+  height: fit-content;
 
   &:hover {
     box-shadow: ${(props) => props.theme.shadow.dark};

@@ -28,7 +28,7 @@ const HeroPage = () => {
         <VideoContainer ref={videoRef} autoPlay muted loop>
           <source src={herovideo} type={"video/mp4"} />
         </VideoContainer>
-        <ContentContainer>
+        <ContentContainer style={{ justifyContent: "center" }}>
           <TextComponents.Title style={{ fontFamily: "Allura", lineHeight: 1 }}>
             Welcome to Animalsy
           </TextComponents.Title>
@@ -42,7 +42,7 @@ const HeroPage = () => {
             we're here to guide you on the exciting journey of pet
             companionship.
           </TextComponents.Body>
-          <SmallContent min={AppSizes.breakpoints.medium}>
+          <SmallContent>
             <Button
               onClick={() => {
                 navigate("/services", { state: { from: "hero" } });
@@ -61,7 +61,7 @@ const HeroPage = () => {
               Read FAQ to find out more obout us.
             </Button>
           </SmallContent>
-          <SmallContent direction="row" min={AppSizes.breakpoints.medium}>
+          <SmallContent direction="row">
             {TopRatedEstablishments.map((establishment) => {
               return (
                 <SmallEstablishmentDisplay

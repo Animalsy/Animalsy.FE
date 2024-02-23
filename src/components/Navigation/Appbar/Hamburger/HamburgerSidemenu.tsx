@@ -38,7 +38,6 @@ export const HamburgerSidemenu = ({
   };
 
   const theme = useTheme();
-  console.log(theme.colors.primary);
   return (
     <StyledMenu ref={ref} open={isOpen}>
       <HamburgerIcon isOpen={isOpen} setIsOpen={setOpen} />

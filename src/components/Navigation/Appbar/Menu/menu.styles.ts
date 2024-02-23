@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import AppSizes from "../../../../static/sizes";
-import { Link } from "react-router-dom";
 
 export const MenuListComponent = styled.ul`
   flex-direction: row;
@@ -11,7 +10,7 @@ export const MenuListComponent = styled.ul`
   }
 `;
 
-export const MenuListItem = styled(Link)<{ isscrolledtotop?: boolean }>`
+export const MenuListItem = styled.button<{ isscrolledtotop?: boolean }>`
   list-style: none;
   margin: 0 0.1rem;
   padding: 0.1rem 1.5rem;
@@ -23,6 +22,7 @@ export const MenuListItem = styled(Link)<{ isscrolledtotop?: boolean }>`
   align-items: center;
   display: flex;
   text-decoration: none;
+  border: none;
   color: ${(props) =>
     props.isscrolledtotop
       ? props.theme.colors.primaryDark

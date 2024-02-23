@@ -3,7 +3,7 @@ import AppSizes from "../../../../static/sizes";
 
 export const StyledBurger = styled.button<{ open: boolean }>`
   position: absolute;
-  top: 0.5rem;
+  top: 0;
   right: 2rem;
   display: flex;
   flex-direction: column;
