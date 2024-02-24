@@ -6,16 +6,16 @@ export const GlobalStyle = createGlobalStyle`
 
 &:root{
     background-color: ${(props) => props.theme.colors.background};
-    @media (max-width: ${AppSizes.breakpoints.small}) {
+    @media (min-width: ${AppSizes.breakpoints.small}) {
         font-size: 1rem;
     }
-    @media (max-width: ${AppSizes.breakpoints.medium}) {
+    @media (min-width: ${AppSizes.breakpoints.medium}) {
         font-size: 1.2rem;
     }
-    @media (max-width: ${AppSizes.breakpoints.large}) {
+    @media (min-width: ${AppSizes.breakpoints.large}) {
         font-size: 1.4rem;
     }
-    @media (max-width: ${AppSizes.breakpoints.extraLarge}) {
+    @media (min-width: ${AppSizes.breakpoints.extraLarge}) {
         font-size: 1.6rem;
     }
 }

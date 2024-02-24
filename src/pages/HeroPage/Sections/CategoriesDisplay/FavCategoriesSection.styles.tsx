@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import AppSizes from "../../../../static/sizes";
 
 export const Section = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: ${AppSizes.appbarHeight};
 `;
 
 export const HorizontalContainer = styled.div`
@@ -13,10 +15,11 @@ export const HorizontalContainer = styled.div`
   padding: 2rem 0.3rem;
   overflow-y: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
   gap: 1rem 1rem;
   align-items: center;
   justify-content: center;
+  height: 100%;
 `;
 
 export const ContainerCategoryDisplay = styled.div<{
@@ -41,4 +44,29 @@ export const ImageContainer = styled.div`
   width: 100%;
   aspect-ratio: 1/1;
   margin-bottom: 1rem;
+`;
+
+export const SectionContainer = styled.div`
+  padding: 0 6rem;
+  overflow: hidden;
+`;
+
+export const DirectionContainer = styled.div<{ reverse?: boolean }>`
+  /*  */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  padding: 0 6rem;
+
+  @media (max-width: ${AppSizes.breakpoints.medium}px) {
+    padding: 0 1rem;
+  }
+
+  @media (min-width: ${AppSizes.breakpoints.large}px) {
+    flex-direction: ${(props) => (props.reverse ? "row-reverse" : "row")};
+
+    padding: 0 4rem;
+  }
 `;

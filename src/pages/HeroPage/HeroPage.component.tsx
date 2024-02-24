@@ -76,7 +76,6 @@ const HeroPage = () => {
       {/* POPULAR CATEGORIES */}
       <FavCategoriesSection />
       {/* WHY CHOOSE US */}
-      <Spacer height={2} />
       <WhyChooseUsSection />
       {/* STORY JURNEY AND SERVICES */}
       <Spacer height={2} />

@@ -1,4 +1,3 @@
-import { border } from "./../../../node_modules/@mui/system/index.d";
 import styled from "styled-components";
 import AppSizes from "../../static/sizes";
 
