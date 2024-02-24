@@ -78,7 +78,6 @@ const HeroPage = () => {
       {/* WHY CHOOSE US */}
       <WhyChooseUsSection />
       {/* STORY JURNEY AND SERVICES */}
-      <Spacer height={2} />
       <StroryServices />
       {/* COLLABORATORS ABOUT US */}
       <CollaboratorsAboutUs />

@@ -6,7 +6,7 @@ export const ScrollContainer = styled.div`
   padding-left: 1rem;
   padding-right: 1rem;
   flex: 1;
-  min-height: 10rem;
+  height: 10rem;
 `;
 
 export const SignleCommentContent = styled.div`
