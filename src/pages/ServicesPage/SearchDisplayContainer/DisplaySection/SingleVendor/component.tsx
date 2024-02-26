@@ -12,7 +12,6 @@ type Props = {
 
 const SingleVendor = (props: Props) => {
   const vendor = props.vendor;
-  const photoUrl = `https://picsum.photos/id/${vendor.id + 10}/200/300`;
 
   const getServicesNames = () => {
     return vendor.services.map((service) => service.title);

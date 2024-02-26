@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Wrapper } from "./styles";
 import PageTemplate from "../pageTemplate";
 import { useParams } from "react-router-dom";
@@ -8,6 +8,7 @@ import { Vendor } from "../../types/vendor";
 type Props = {};
 
 const Vendors = (props: Props) => {
+  console.log(props);
   const { id } = useParams();
   const findVendorById = (id: string) => {
     return vendorListStatic.find((vendor) => vendor.id.toString() === id);
