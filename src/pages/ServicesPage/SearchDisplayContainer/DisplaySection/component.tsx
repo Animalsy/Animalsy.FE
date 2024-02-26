@@ -17,10 +17,12 @@ const DisplaySection = (props: Props) => {
   };
   console.log(newVendorList, props);
   const filterVendors = (filter: SearchableType) => {
-    const filteredVendors = vendorListStatic.filter((vendor) => {
-      return vendor.name.toLowerCase().includes(filter.search.toLowerCase());
-    });
-    setVendorList(filteredVendors);
+    if (filter.search) {
+      const filteredVendors = vendorListStatic.filter((vendor) => {
+        return vendor.name.toLowerCase().includes(filter.search.toLowerCase());
+      });
+      setVendorList(filteredVendors);
+    }
   };
   useEffect(() => {
     filterVendors(props.searchable);
