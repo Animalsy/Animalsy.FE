@@ -15,9 +15,7 @@ import FavCategoriesSection from "./Sections/CategoriesDisplay/FavCategoriesSect
 import { WhyChooseUsSection } from "./Sections/WhyChooseUs/WhyChooseUs.section";
 import herovideo from "../../assets/video/video.mp4";
 import StroryServices from "./Sections/Story&Services/StroryServices.section";
-import Spacer from "../../components/containers/spacer";
 import CollaboratorsAboutUs from "./Sections/CollaboratorsAboutUs/CollaboratorsAboutUs.section";
-import AppSizes from "../../static/sizes";
 
 const HeroPage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);

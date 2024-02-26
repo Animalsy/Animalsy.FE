@@ -13,7 +13,7 @@ const Content = styled.div`
 
 export const VideoContentContainer = styled.div`
   z-index: 2;
-  height: calc(80dvh - 2rem);
+  height: calc(100dvh - 2rem);
   position: absolute;
   display: flex;
   align-items: center;

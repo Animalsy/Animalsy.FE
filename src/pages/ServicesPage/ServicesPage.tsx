@@ -6,6 +6,6 @@ export const FullSection = styled.section`
   margin: 0;
   padding: 0;
   padding-top: ${AppSizes.appbarHeight};
-  height: calc(100dvh - 2rem);
+  min-height: calc(100dvh - 2rem);
   position: relative;
 `;

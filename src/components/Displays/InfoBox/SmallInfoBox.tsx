@@ -5,7 +5,7 @@ export const SmallInfoBox = ({ info }: { info: IInfoBox }) => {
   return (
     <div>
       <img
-        // @ts-ignore
+        // @ts-expect-error
         src={info.icon}
         style={{ aspectRatio: 1, width: "20%", objectFit: "contain" }}
       />

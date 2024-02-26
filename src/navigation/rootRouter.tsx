@@ -17,11 +17,19 @@ const rootRouter = createBrowserRouter([
     element: <ServicesPage type="services" />,
   },
   {
+    path: "/services/:category/:subcategory",
+    element: <ServicesPage type="services" />,
+  },
+  {
     path: "/specials/",
     element: <ServicesPage type="specials" />,
   },
   {
     path: "/specials/:category",
+    element: <ServicesPage type="specials" />,
+  },
+  {
+    path: "/specials/:category/:subcategory",
     element: <ServicesPage type="specials" />,
   },
 

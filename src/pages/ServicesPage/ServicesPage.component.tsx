@@ -9,10 +9,24 @@ import { useTheme } from "styled-components";
 import { VideoContentContainer } from "../../components/containers/pageContainer";
 import Searchable from "../../components/Searchable";
 import TextComponents from "../../components/TextComponents";
+import { Button } from "../../components/Touchables/Buttons";
+import { Tooltip } from "@mui/material";
+import useQuerryString from "../../hooks/useRoute";
+import SearchDisplayContainer from "./SearchDisplayContainer";
 
+export type SearchableType = {
+  search: string;
+  address: string;
+  category: string;
+  subcategory: string;
+};
 const ServicesPage = ({ type }: { type: "services" | "specials" }) => {
-  // const { category } = useParams();
-  const [searchableFilter, setSearchableFilter] = useState<string>("");
+  const [searchableFilter, setSearchableFilter] = useState<SearchableType>({
+    address: "",
+    search: "",
+    category: "",
+    subcategory: "",
+  });
   useEffect(() => {
     console.log("type: " + type);
   }, [type]);
@@ -27,8 +41,21 @@ const ServicesPage = ({ type }: { type: "services" | "specials" }) => {
 
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const theme = useTheme();
+  const route = useQuerryString<SearchableType>(searchableFilter);
+
+  useEffect(() => {
+    setSearchableFilter(route.params);
+  }, [route.params]);
+
+  const hadleSearch = () => {
+    // add searchableFilter to url params
+    if (searchableFilter) {
+      route.setQueryParams(searchableFilter);
+    }
+  };
+
   return (
-    <PageTemplate offsetColor={1}>
+    <PageTemplate>
       <FullSection about="searchbar">
         <VideoContainer
           className="setheight"
@@ -38,7 +65,7 @@ const ServicesPage = ({ type }: { type: "services" | "specials" }) => {
           loop
           style={{
             position: "absolute",
-            height: "80dvh",
+            height: "100dvh",
             width: "100%",
             zIndex: -1,
             top: 0,
@@ -58,6 +85,11 @@ const ServicesPage = ({ type }: { type: "services" | "specials" }) => {
             searchableFilter={searchableFilter}
             setSearchableFilter={setSearchableFilter}
           />
+          <Tooltip placement="top" title="Search for a service" arrow>
+            <Button buttonType="outlined" onClick={hadleSearch}>
+              Search
+            </Button>
+          </Tooltip>
         </VideoContentContainer>
 
         <div
@@ -72,14 +104,16 @@ const ServicesPage = ({ type }: { type: "services" | "specials" }) => {
             left: "50%",
             cursor: "pointer",
             overflow: "hidden",
+            zIndex: 2,
           }}
           onClick={scrollToNextSection}
         >
-          <FaArrowCircleDown color={theme.colors.primaryDark} size={"2rem"} />
+          <FaArrowCircleDown color={theme.colors.text} size={"2rem"} />
         </div>
       </FullSection>
-      <FullSection style={{ background: "pink" }}>hello</FullSection>
-      <FullSection style={{ background: "pink" }}>hello</FullSection>
+      <FullSection style={{ display: "fex" }}>
+        <SearchDisplayContainer searchable={route.params} type={type} />
+      </FullSection>
     </PageTemplate>
   );
 };
