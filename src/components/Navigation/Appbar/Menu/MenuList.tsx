@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const MenuList = ({ isscrolledtotop }: { isscrolledtotop: boolean }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [lastSelected, setLastSelected] = useState<string | null>(null);
-
+  console.log("test netlify");
   const open = Boolean(anchorEl);
   const navigate = useNavigate();
   const handleClick = (name: string) => {
