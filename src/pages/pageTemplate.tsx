@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NavigationComponents from "../components/Navigation";
 import FooterSection from "../components/Navigation/footer/FooterSection";
+import PageContainer from "../components/containers/pageContainer";
 
 const PageTemplate = (props: {
   children: React.ReactNode;
@@ -30,13 +31,13 @@ const PageTemplate = (props: {
       style={{
         paddingTop: props.offsetTop ? `${props.offsetTop}rem` : 0,
         zIndex: 10000,
-        minHeight: "100dvh",
+        minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
       }}
     >
       <NavigationComponents.AppBar isscrolledtotop={isScrolled} />
-      <div style={{ flex: 1 }}>{props.children}</div>
+      <PageContainer>{props.children}</PageContainer>
       <FooterSection />
     </div>
   );

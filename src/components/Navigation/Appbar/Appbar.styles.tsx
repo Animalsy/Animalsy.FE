@@ -15,6 +15,7 @@ export const AppbarContainer = styled.header<{ isscrolledtotop: boolean }>`
   align-items: center;
   padding: 0 2rem;
   justify-content: space-between;
+  box-shadow: ${(props) => props.theme.shadow.light};
 `;
 
 export const LogoImage = styled.img`

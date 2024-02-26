@@ -17,9 +17,9 @@ const mediumFontSizeTheme = {
 };
 
 const largeFontSizeTheme = {
-  title: "2.5em",
-  subtitle: "1.5em",
-  body: "1em",
+  title: "1.5em",
+  subtitle: "1.2em",
+  body: ".7em",
 };
 
 const SizeTheme = {

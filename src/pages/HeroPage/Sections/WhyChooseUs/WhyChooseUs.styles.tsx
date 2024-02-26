@@ -2,70 +2,43 @@ import styled from "styled-components";
 import AppSizes from "../../../../static/sizes";
 
 export const ChooseContainer = styled.section<{ reverse?: boolean }>`
-  display: grid;
+  display: flex;
   flex-direction: row;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
   padding: 1rem;
-  direction: ${(props) => (props.reverse ? "rtl" : "ltr")};
 
-  @media (max-width: ${AppSizes.breakpoints.large}px) {
+  @media (min-width: ${AppSizes.breakpoints.large}px) {
     display: flex;
     flex-direction: column-reverse;
-  }
-
-  & > div {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 3rem;
-    border-radius: 1rem;
-    aspect-ratio: 1/1;
-
-    @media (max-width: ${AppSizes.breakpoints.small}px) {
-      padding: 0.5rem;
-    }
-    @media (max-width: ${AppSizes.breakpoints.large}px) {
-      aspect-ratio: 2/1;
-    }
-  }
-  & > div:nth-child(1) {
-    background-color: transparent !important;
-    margin: 0;
-    padding: 0;
   }
 `;
 
 export const GridInfo = styled.div`
+  flex: 2;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-  aspect-ratio: 1;
-  min-height: 10rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
 
   & > div {
+    align-self: center;
     background-color: ${(props) => props.theme.colors.secondaryLight};
-    border-radius: 1rem;
-    padding: 0.5rem;
+    border-radius: 0.5rem;
+    padding: 0.1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: ${(props) => props.theme.shadow.medium};
-    max-height: 12rem;
+    max-height: 8rem;
     max-width: 12rem;
 
-    @media (max-width: ${AppSizes.breakpoints.small}px) {
-      flex-direction: column;
+    @media (min-width: ${AppSizes.breakpoints.small}px) {
       width: 100%;
-      margin: 0;
       padding: 0 2rem;
     }
 
-    @media (max-width: ${AppSizes.breakpoints.medium}px) {
-      flex-direction: column;
+    @media (min-width: ${AppSizes.breakpoints.medium}px) {
       width: 100%;
       aspect-ratio: 2/1;
 
@@ -73,12 +46,14 @@ export const GridInfo = styled.div`
     }
   }
 
-  @media (max-width: ${AppSizes.breakpoints.small}px) {
+  @media (max-width: ${AppSizes.breakpoints.medium}px) {
     display: flex;
     flex-direction: column;
     width: 100%;
-  }
-  @media (max-width: ${AppSizes.breakpoints.medium}px) {
-    aspect-ratio: unset;
+
+    & > div {
+      margin: 0.5rem 0;
+      padding: 1rem 0;
+    }
   }
 `;

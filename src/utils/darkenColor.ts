@@ -1,4 +1,4 @@
-function LightenDarkenColor(col: string, amt: number) {
+export function LightenDarkenColor(col: string, amt: number) {
   var usePound = false;
   if (col[0] == "#") {
     col = col.slice(1);

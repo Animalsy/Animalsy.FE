@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes } from "react";
 import { ButtonComponent } from "./Buttons.styles";
 import { CiSearch } from "react-icons/ci";
 
-type ButtonType = "search" | "menu" | "none";
+export type ButtonType = "search" | "menu" | "none" | "outlined";
 
 export const Button = ({
   children,
@@ -33,6 +33,7 @@ export const Button = ({
       backgroundColor={backgroundColor}
       textColor={textColor}
       style={{ ...style }}
+      buttonType={buttonType}
       onClick={
         onClick
           ? onClick

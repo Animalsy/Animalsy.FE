@@ -27,30 +27,32 @@ export const ContentContainer = styled.section`
   position: absolute;
   left: 0;
   top: 0;
+  bottom: 0;
+  right: 0;
   color: #f1f1f1;
   width: 70%;
   /* align-items: flex-start; */
   padding: 20px;
-  margin-left: 4rem;
+  margin-left: 1rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding-top: 20%;
+  padding-top: ${AppSizes.appbarHeight};
 
-  @media (max-width: ${AppSizes.breakpoints.small}px) {
+  @media (min-width: ${AppSizes.breakpoints.small}px) {
     padding-top: ${AppSizes.appbarHeight};
     margin-left: 0rem;
   }
-  @media (max-width: ${AppSizes.breakpoints.medium}px) {
-    padding-top: 4rem;
+  @media (min-width: ${AppSizes.breakpoints.medium}px) {
+    padding-top: 3rem;
     margin-left: 0.5rem;
   }
-  @media (max-width: ${AppSizes.breakpoints.large}px) {
-    padding-top: 5rem;
+  @media (min-width: ${AppSizes.breakpoints.large}px) {
+    padding-top: 3rem;
     margin-left: 1rem;
   }
-  @media (max-width: ${AppSizes.breakpoints.extraLarge}px) {
-    padding-top: 6rem;
+  @media (min-width: ${AppSizes.breakpoints.extraLarge}px) {
+    padding-top: 3rem;
     margin-left: 1rem;
   }
 `;

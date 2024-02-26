@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { useAppTheme } from "../hooks/themeHook";
 import AppSizes from "../static/sizes";
 import { GlobalStyle } from "./globalStyle";
-
 export const AppThemeProvider = (props: { children: React.ReactNode }) => {
   const { theme, textSize, toggleTextSize, setThemeVariant } = useAppTheme();
   const [testSizeTheme, setTestSizeTheme] = useState(SizeTheme.textMedium);

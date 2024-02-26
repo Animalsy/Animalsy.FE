@@ -15,9 +15,7 @@ import FavCategoriesSection from "./Sections/CategoriesDisplay/FavCategoriesSect
 import { WhyChooseUsSection } from "./Sections/WhyChooseUs/WhyChooseUs.section";
 import herovideo from "../../assets/video/video.mp4";
 import StroryServices from "./Sections/Story&Services/StroryServices.section";
-import Spacer from "../../components/containers/spacer";
 import CollaboratorsAboutUs from "./Sections/CollaboratorsAboutUs/CollaboratorsAboutUs.section";
-import AppSizes from "../../static/sizes";
 
 const HeroPage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -28,7 +26,7 @@ const HeroPage = () => {
         <VideoContainer ref={videoRef} autoPlay muted loop>
           <source src={herovideo} type={"video/mp4"} />
         </VideoContainer>
-        <ContentContainer>
+        <ContentContainer style={{ justifyContent: "center" }}>
           <TextComponents.Title style={{ fontFamily: "Allura", lineHeight: 1 }}>
             Welcome to Animalsy
           </TextComponents.Title>
@@ -42,7 +40,7 @@ const HeroPage = () => {
             we're here to guide you on the exciting journey of pet
             companionship.
           </TextComponents.Body>
-          <SmallContent min={AppSizes.breakpoints.medium}>
+          <SmallContent>
             <Button
               onClick={() => {
                 navigate("/services", { state: { from: "hero" } });
@@ -61,7 +59,7 @@ const HeroPage = () => {
               Read FAQ to find out more obout us.
             </Button>
           </SmallContent>
-          <SmallContent direction="row" min={AppSizes.breakpoints.medium}>
+          <SmallContent direction="row">
             {TopRatedEstablishments.map((establishment) => {
               return (
                 <SmallEstablishmentDisplay
@@ -76,10 +74,8 @@ const HeroPage = () => {
       {/* POPULAR CATEGORIES */}
       <FavCategoriesSection />
       {/* WHY CHOOSE US */}
-      <Spacer height={2} />
       <WhyChooseUsSection />
       {/* STORY JURNEY AND SERVICES */}
-      <Spacer height={2} />
       <StroryServices />
       {/* COLLABORATORS ABOUT US */}
       <CollaboratorsAboutUs />
