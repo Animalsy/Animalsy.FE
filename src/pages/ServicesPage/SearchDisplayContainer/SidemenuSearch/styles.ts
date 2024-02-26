@@ -6,9 +6,11 @@ import TextComponents from "../../../../components/TextComponents";
 export const Wrapper = styled.div`
   display: flex;
   flex: 1;
+  position: sticky;
   top: calc(${AppSizes.appbarHeight} + 1rem);
   flex-direction: column;
   background-color: ${(props) => props.theme.colors.primaryLight};
+  min-width: 7rem;
 `;
 
 export const CategoryWrapper = styled.div`

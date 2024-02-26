@@ -11,7 +11,7 @@ type Props = {
 const SearchDisplayContainer = (props: Props) => (
   <Wrapper>
     <SidemenuSearch type={props.type} />
-    <DisplaySection type={props.type} />
+    <DisplaySection type={props.type} searchable={props.searchable} />
   </Wrapper>
 );
 

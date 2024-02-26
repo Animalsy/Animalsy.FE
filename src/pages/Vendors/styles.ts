@@ -1,9 +1,9 @@
 import styled from "styled-components";
+import AppSizes from "../../static/sizes";
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  flex: 5;
-  padding: 2rem;
+  padding-top: ${AppSizes.appbarHeight};
+  background-color: pink;
 `;
