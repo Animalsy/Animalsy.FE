@@ -81,6 +81,7 @@ export interface Pet {
   name: string;
   dateOfBirth: string;
   photo?: string;
+  id: number;
 }
 
 export interface VendorProfile {
@@ -95,10 +96,10 @@ export interface VendorProfile {
   pendingVisits: Visit[];
 }
 
-enum Species {
-  Dog = "Dog",
-  Cat = "Cat",
-  Bird = "Bird",
+export enum Species {
+  dog = "Dog",
+  cat = "Cat",
+  bird = "Bird",
   // Add more species here
 }
 

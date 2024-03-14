@@ -1,20 +1,18 @@
 import { Wrapper, ServiceWrapper } from "./styles";
 import PageTemplate from "../pageTemplate";
-// import { useLocation } from "react-router";
 import "react-datepicker/dist/react-datepicker.css";
 import Calendar from "../../components/Calendar";
 import { useLocation } from "react-router-dom";
 import { MutableRefObject, useRef, useState } from "react";
 import TextComponents from "../../components/TextComponents";
 import { Button } from "../../components/Touchables/Buttons";
-import { Box, Modal, ModalTypeMap, Typography } from "@mui/material";
+import { Modal, Typography } from "@mui/material";
 import ServiceList from "../../components/Vendor/ServiceList";
 import useOnClickOutside from "../../hooks/clickOutside";
-import { OverridableComponent } from "@mui/material/OverridableComponent";
-import { Service, Vendor } from "../../types/vendor";
-import { Card } from "@mui/joy";
-import { AiOutlineArrowRight } from "react-icons/ai";
+import { Pet, Service, Vendor } from "../../types/vendor";
 import { useTheme } from "styled-components";
+import PetSelector from "../../components/PetSelector";
+import SingleService from "../../components/Vendor/ServiceList/SingleService";
 
 type Props = {};
 
@@ -23,6 +21,7 @@ const BookAVisitPage = (_: Props) => {
     state: { vendor: Vendor; service: Service };
   };
 
+  const [selectedPet, setSelectedPet] = useState<Pet>();
   const [appointmentDate, setAppointmentDate] = useState<{
     date: string;
     hour: string;
@@ -39,132 +38,76 @@ const BookAVisitPage = (_: Props) => {
 
   const theme = useTheme();
 
+  function bookAvisti({}: {
+    selectedPet: Pet | undefined;
+    selectedService: Service;
+    appointmentDate: { date: string; hour: string };
+  }) {
+    if (!selectedPet) return alert("Please select a pet");
+    if (!selectedService) return alert("Please select a service");
+    if (!appointmentDate.date || !appointmentDate.hour)
+      return alert("Please select a date and time");
+    console.log({ selectedPet, selectedService, appointmentDate });
+  }
+
   return (
     <PageTemplate offsetColor={1} offsetTop={2}>
-      <Modal
-        open={isModalOpen}
-        style={{ display: "flex", justifyContent: "center" }}
-      >
-        <ServiceList
-          selectedService={selectedService}
-          setSelectedService={setSelectedService}
-          handleclose={() => {
-            return setIsModalOpen(false);
-          }}
-          services={state.vendor.services}
-        />
-      </Modal>
-      <Wrapper>
-        <Calendar
-          vendor={state.vendor}
-          appointmentDate={appointmentDate}
-          setAppointmentDate={setAppointmentDate}
-        />
-      </Wrapper>
-
-      {/* <SelectedService /> */}
-      <Typography variant="h6" fontSize={"1rem"} color={theme.colors.accent}>
-        Selected Service
-      </Typography>
-      <ServiceWrapper>
-        <Card
-          orientation="horizontal"
-          size="sm"
-          key={selectedService.id}
-          variant="outlined"
-          sx={{
-            cursor: "pointer",
-            userSelect: "none",
-            flexDirection: "column",
-            backgroundColor: "white",
-          }}
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <Modal
+          open={isModalOpen}
+          style={{ display: "flex", justifyContent: "center" }}
         >
-          <Typography
-            variant="h6"
-            fontSize={".5rem"}
-            color={theme.colors.accent}
-          >
-            {selectedService.title}
-          </Typography>
-          <Typography
-            variant="h6"
-            fontSize={".4rem"}
-            color={theme.colors.opposite}
-          >
-            {selectedService.description}
-          </Typography>
-          <Typography
-            variant="h6"
-            fontSize={".4rem"}
-            color={theme.colors.opposite}
-          >
-            {selectedService.category}
-          </Typography>
-          <Typography
-            variant="h6"
-            fontSize={".4rem"}
-            color={theme.colors.opposite}
-          >
-            {selectedService.discount ? (
-              <>
-                <s>
-                  {selectedService.priceRange.min}pln{" "}
-                  {selectedService.priceRange.max &&
-                    `- ${selectedService.priceRange.max}pln`}
-                </s>
-                <TextComponents.Body size={1.2} accent>
-                  {" "}
-                  {selectedService.discount}pln
-                </TextComponents.Body>
-              </>
-            ) : (
-              selectedService.priceRange.min +
-              "pln - " +
-              selectedService.priceRange.max +
-              "pln"
-            )}
-          </Typography>
-          <Typography
-            variant="h6"
-            fontSize={".4rem"}
-            color={theme.colors.opposite}
-          >
-            {selectedService.durationMin}min
-          </Typography>
-          <Box sx={{ padding: "0 .4rem" }}>
-            <Typography
-              variant="h6"
-              fontSize={".4rem"}
-              color={theme.colors.opposite}
-            >
-              Includes:{" "}
-            </Typography>
-            {selectedService.includes.map((include) => {
-              return (
-                <Typography
-                  variant="h6"
-                  fontSize={".4rem"}
-                  color={theme.colors.opposite}
-                >
-                  <AiOutlineArrowRight /> {include}
-                </Typography>
-              );
-            })}
-          </Box>
-        </Card>
+          <ServiceList
+            selectedService={selectedService}
+            setSelectedService={setSelectedService}
+            handleclose={() => {
+              return setIsModalOpen(false);
+            }}
+            services={state.vendor.services}
+          />
+        </Modal>
+        <Wrapper>
+          <Calendar
+            vendor={state.vendor}
+            appointmentDate={appointmentDate}
+            setAppointmentDate={setAppointmentDate}
+          />
+        </Wrapper>
 
+        {/* <SelectedService /> */}
+        <Typography variant="h6" fontSize={"1rem"} color={theme.colors.accent}>
+          Selected Service
+        </Typography>
+        <ServiceWrapper>
+          <SingleService
+            service={selectedService}
+            onclick={() => {
+              setIsModalOpen(true);
+            }}
+          />
+
+          <Button
+            onClick={() => {
+              setIsModalOpen(true);
+            }}
+          >
+            Change
+          </Button>
+        </ServiceWrapper>
+        <PetSelector
+          selectedPet={selectedPet}
+          setSelectedPet={setSelectedPet}
+        />
+        {/*  */}
         <Button
+          style={{ alignSelf: "center" }}
           onClick={() => {
-            setIsModalOpen(true);
+            bookAvisti({ selectedPet, selectedService, appointmentDate });
           }}
         >
-          Change
+          Book a visit
         </Button>
-      </ServiceWrapper>
-      {/*  */}
-      <TextComponents.Subtitle accent>
-        {JSON.stringify(appointmentDate)}
-      </TextComponents.Subtitle>
+      </div>
     </PageTemplate>
   );
 };

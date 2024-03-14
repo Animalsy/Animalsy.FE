@@ -2,11 +2,10 @@ import React, { useRef } from "react";
 import { ContentContainer, Wrapper } from "./styles";
 import { Service } from "../../../types/vendor";
 import useOnClickOutside from "../../../hooks/clickOutside";
-import { AiFillCloseCircle, AiOutlineArrowRight } from "react-icons/ai";
+import { AiFillCloseCircle } from "react-icons/ai";
 import { useTheme } from "styled-components";
-import { Box, Typography } from "@mui/material";
-import Card from "@mui/joy/Card";
-import TextComponents from "../../TextComponents";
+import { Box } from "@mui/material";
+import SingleService from "./SingleService";
 
 type Props = {
   services: Service[];
@@ -59,99 +58,13 @@ const ServiceList = (props: Props) => {
           >
             {props.services.map((service) => {
               return (
-                <Card
-                  orientation="horizontal"
-                  size="sm"
+                <SingleService
                   key={service.id}
-                  onClick={() => {
-                    props.setSelectedService(service);
-                    props.handleclose && props.handleclose();
-                  }}
-                  variant="outlined"
-                  sx={{
-                    width: "85%",
-                    cursor: "pointer",
-                    userSelect: "none",
-                    flexDirection: "column",
-                    backgroundColor:
-                      props.selectedService.id === service.id
-                        ? theme.colors.primaryLight
-                        : "white",
-                  }}
-                >
-                  <Typography
-                    variant="h6"
-                    fontSize={".5rem"}
-                    color={theme.colors.accent}
-                  >
-                    {service.title}
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    fontSize={".4rem"}
-                    color={theme.colors.opposite}
-                  >
-                    {service.description}
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    fontSize={".4rem"}
-                    color={theme.colors.opposite}
-                  >
-                    {service.category}
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    fontSize={".4rem"}
-                    color={theme.colors.opposite}
-                  >
-                    {service.discount ? (
-                      <>
-                        <s>
-                          {service.priceRange.min}pln{" "}
-                          {service.priceRange.max &&
-                            `- ${service.priceRange.max}pln`}
-                        </s>
-                        <TextComponents.Body size={1.2} accent>
-                          {" "}
-                          {service.discount}pln
-                        </TextComponents.Body>
-                      </>
-                    ) : (
-                      service.priceRange.min +
-                      "pln - " +
-                      service.priceRange.max +
-                      "pln"
-                    )}
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    fontSize={".4rem"}
-                    color={theme.colors.opposite}
-                  >
-                    {service.durationMin}min
-                  </Typography>
-                  <Box sx={{ padding: "0 .4rem" }}>
-                    <Typography
-                      variant="h6"
-                      fontSize={".4rem"}
-                      color={theme.colors.opposite}
-                    >
-                      Includes:{" "}
-                    </Typography>
-                    {service.includes.map((include) => {
-                      return (
-                        <Typography
-                          variant="h6"
-                          fontSize={".4rem"}
-                          color={theme.colors.opposite}
-                        >
-                          <AiOutlineArrowRight /> {include}
-                        </Typography>
-                      );
-                    })}
-                  </Box>
-                </Card>
+                  service={service}
+                  handleclose={props.handleclose}
+                  selectedService={props.selectedService}
+                  setSelectedService={props.setSelectedService}
+                />
               );
             })}
           </Box>
