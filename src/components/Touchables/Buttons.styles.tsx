@@ -15,6 +15,8 @@ export const ButtonComponent = styled.button<{
   margin: 0.2rem 0.5rem;
   box-shadow: ${(props) => props.theme.shadow.medium};
   font-weight: 900;
+  transition: all 100ms;
+  cursor: pointer;
   background-color: ${(props) => {
     if (props.buttonType === "outlined") {
       return "transparent";

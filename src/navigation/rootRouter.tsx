@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import { HeroPage } from "../pages/HeroPage";
-import PageTemplate from "../pages/pageTemplate";
 import { ServicesPage } from "../pages/ServicesPage";
 import Vendors from "../pages/Vendors";
+import NotFound from "../pages/NotFound";
+import BookAVisitPage from "../pages/BookAVisitPage";
 
 const rootRouter = createBrowserRouter([
   {
@@ -38,12 +39,12 @@ const rootRouter = createBrowserRouter([
     element: <Vendors />,
   },
   {
+    path: "bookvisit/:vendorId/:serviceId",
+    element: <BookAVisitPage />,
+  },
+  {
     path: "/*",
-    element: (
-      <PageTemplate>
-        <div>notFound</div>
-      </PageTemplate>
-    ),
+    element: <NotFound text="nothing" />,
   },
 ]);
 export default rootRouter;

@@ -32,7 +32,6 @@ const SingleVendor = (props: Props) => {
 
   useEffect(() => {
     if (width === "1rem") {
-      console.log("should calculate");
       const w = calculateDataWrapperWidth();
       setWidth(w);
     }
@@ -73,8 +72,8 @@ const SingleVendor = (props: Props) => {
               bottom: 0,
               left: 0,
               width: "100%",
-              height: "2rem",
-              background: `linear-gradient(transparent, #C2CBD3)`,
+              height: "3rem",
+              background: `linear-gradient(transparent, #DDE2E8)`,
             }}
           ></div>
         </TextComponents.Body>

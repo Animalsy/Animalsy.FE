@@ -4,3 +4,8 @@
   overflow: auto;
   width: 100%;
 }
+
+*{
+  scrollbar-color:grey transparent;
+  
+}

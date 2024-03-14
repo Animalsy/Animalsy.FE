@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 const MenuList = ({ isscrolledtotop }: { isscrolledtotop: boolean }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [lastSelected, setLastSelected] = useState<string | null>(null);
-  console.log("test netlify");
   const open = Boolean(anchorEl);
   const navigate = useNavigate();
   const handleClick = (name: string) => {
@@ -41,17 +40,15 @@ const MenuList = ({ isscrolledtotop }: { isscrolledtotop: boolean }) => {
       <MenuListComponent>
         {NavigationData.map((item, index) => {
           return (
-            <>
-              <MenuListItem
-                isscrolledtotop={isscrolledtotop}
-                key={index}
-                onClick={() => handleClick(item.name)}
-                onMouseEnter={(event) => handleHover(event, item.name)}
-              >
-                <item.icon />
-                {item.name}
-              </MenuListItem>
-            </>
+            <MenuListItem
+              isscrolledtotop={isscrolledtotop}
+              key={index}
+              onClick={() => handleClick(item.name)}
+              onMouseEnter={(event) => handleHover(event, item.name)}
+            >
+              <item.icon />
+              {item.name}
+            </MenuListItem>
           );
         })}
         <Menu

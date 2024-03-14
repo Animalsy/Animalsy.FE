@@ -9,6 +9,7 @@ export const vendorServicesListStatic: Service[] = [
     includes: ["Bath", "Massage", "Brushing"],
     priceRange: { min: 50, max: 100 },
     performers: [],
+    discount: 40,
     durationMin: 60,
   },
   {
@@ -128,44 +129,41 @@ export const vendorListStatic: Vendor[] = [
       houseNumber: "1",
       apartmentNumber: "A",
     },
+    email: "vendor1@email.com",
     phoneNumber: "1234567890",
     location: "Location 1",
-    openingHours: {
-      monday: {
-        open: "9am",
-        close: "5pm",
+    openingHours: [
+      {
+        day: "monday",
+        open: "9:00",
+        close: "15:00",
       },
-      tuesday: {
-        open: "9am",
-        close: "5pm",
+      {
+        day: "tuesday",
+        open: "9:00",
+        close: "15:00",
       },
-      wednesday: {
-        open: "9am",
-        close: "5pm",
+      {
+        day: "wednesday",
+        open: "9:00",
+        close: "15:00",
       },
-      thursday: {
-        open: "9am",
-        close: "5pm",
+      { day: "thursday", open: "9:00", close: "15:00" },
+      {
+        day: "friday",
+        open: "9:00",
+        close: "15:00",
       },
-      friday: {
-        open: "9am",
-        close: "5pm",
-      },
-      saturday: {
-        open: "9am",
-        close: "5pm",
-      },
-      sunday: {
-        open: "9am",
-        close: "5pm",
-      },
-    },
+      { day: "saturday", closed: true },
+      { day: "sunday", closed: true },
+    ],
     services: vendorServicesListStatic,
     reviews: [],
   },
   {
     id: 2,
     name: "Vendor 2",
+    email: "vendor1@emai2.com",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos itaque, expedita vero soluta inventore alias assumenda quidem suscipit quas iure deleniti quisquam fuga autem voluptatum eaque velit ab incidunt aperiam? Rerum necessitatibus quo obcaecati sed vitae exercitationem? Ullam, numquam ratione.",
     address: {
@@ -177,42 +175,38 @@ export const vendorListStatic: Vendor[] = [
     },
     phoneNumber: "2345678901",
     location: "Location 2",
-    openingHours: {
-      monday: {
-        open: "10am",
-        close: "6pm",
+    openingHours: [
+      {
+        day: "monday",
+        open: "10:00",
+        close: "16:00",
       },
-      tuesday: {
-        open: "10am",
-        close: "6pm",
+      {
+        day: "tuesday",
+        open: "10:00",
+        close: "16:00",
       },
-      wednesday: {
-        open: "10am",
-        close: "6pm",
+      {
+        day: "wednesday",
+        open: "10:00",
+        close: "16:00",
       },
-      thursday: {
-        open: "10am",
-        close: "6pm",
+      { day: "thursday", open: "10:00", close: "16:00" },
+      {
+        day: "friday",
+        open: "10:00",
+        close: "16:00",
       },
-      friday: {
-        open: "10am",
-        close: "6pm",
-      },
-      saturday: {
-        open: "10am",
-        close: "6pm",
-      },
-      sunday: {
-        open: "10am",
-        close: "6pm",
-      },
-    },
+      { day: "saturday", open: "10:00", close: "16:00" },
+      { day: "sunday", open: "10:00", close: "16:00" },
+    ],
     services: vendorServicesListStatic,
     reviews: [],
   },
   {
     id: 3,
     name: "Vendor 3",
+    email: "vendor3@email.com",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex consequatur doloremque temporibus repellendus aliquam minus error earum, quidem iste numquam.",
     address: {
@@ -224,41 +218,37 @@ export const vendorListStatic: Vendor[] = [
     },
     phoneNumber: "3456789012",
     location: "Location 3",
-    openingHours: {
-      monday: {
-        open: "11am",
-        close: "7pm",
+    openingHours: [
+      {
+        day: "monday",
+        open: "11:00",
+        close: "17:00",
       },
-      tuesday: {
-        open: "11am",
-        close: "7pm",
+      {
+        day: "tuesday",
+        open: "11:00",
+        close: "17:00",
       },
-      wednesday: {
-        open: "11am",
-        close: "7pm",
+      {
+        day: "wednesday",
+        open: "11:00",
+        close: "17:00",
       },
-      thursday: {
-        open: "11am",
-        close: "7pm",
+      { day: "thursday", open: "11:00", close: "17:00" },
+      {
+        day: "friday",
+        open: "11:00",
+        close: "17:00",
       },
-      friday: {
-        open: "11am",
-        close: "7pm",
-      },
-      saturday: {
-        open: "11am",
-        close: "7pm",
-      },
-      sunday: {
-        open: "11am",
-        close: "7pm",
-      },
-    },
+      { day: "saturday", open: "11:00", close: "17:00" },
+      { day: "sunday", open: "11:00", close: "17:00" },
+    ],
     services: vendorServicesListStatic,
     reviews: [],
   },
   {
     id: 4,
+    email: "vendor4@email.com",
     name: "Vendor 4",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium animi aliquid debitis ratione praesentium alias doloribus dolorum a labore veritatis!",
@@ -271,41 +261,37 @@ export const vendorListStatic: Vendor[] = [
     },
     phoneNumber: "4567890123",
     location: "Location 4",
-    openingHours: {
-      monday: {
-        open: "12pm",
-        close: "8pm",
+    openingHours: [
+      {
+        day: "monday",
+        open: "112:00",
+        close: "18:00",
       },
-      tuesday: {
-        open: "12pm",
-        close: "8pm",
+      {
+        day: "tuesday",
+        open: "112:00",
+        close: "18:00",
       },
-      wednesday: {
-        open: "12pm",
-        close: "8pm",
+      {
+        day: "wednesday",
+        open: "112:00",
+        close: "18:00",
       },
-      thursday: {
-        open: "12pm",
-        close: "8pm",
+      { day: "thursday", open: "112:00", close: "18:00" },
+      {
+        day: "friday",
+        open: "112:00",
+        close: "18:00",
       },
-      friday: {
-        open: "12pm",
-        close: "8pm",
-      },
-      saturday: {
-        open: "12pm",
-        close: "8pm",
-      },
-      sunday: {
-        open: "12pm",
-        close: "8pm",
-      },
-    },
+      { day: "saturday", open: "112:00", close: "18:00" },
+      { day: "sunday", open: "112:00", close: "18:00" },
+    ],
     services: vendorServicesListStatic,
     reviews: [],
   },
   {
     id: 5,
+    email: "vendor5@email.com",
     name: "Vendor 5",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium animi aliquid debitis ratione praesentium alias doloribus dolorum a labore veritatis!",
@@ -318,41 +304,37 @@ export const vendorListStatic: Vendor[] = [
     },
     phoneNumber: "5678901234",
     location: "Location 5",
-    openingHours: {
-      monday: {
-        open: "1pm",
-        close: "9pm",
+    openingHours: [
+      {
+        day: "monday",
+        open: "11:00",
+        close: "19:00",
       },
-      tuesday: {
-        open: "1pm",
-        close: "9pm",
+      {
+        day: "tuesday",
+        open: "11:00",
+        close: "19:00",
       },
-      wednesday: {
-        open: "1pm",
-        close: "9pm",
+      {
+        day: "wednesday",
+        open: "11:00",
+        close: "19:00",
       },
-      thursday: {
-        open: "1pm",
-        close: "9pm",
+      { day: "thursday", open: "11:00", close: "19:00" },
+      {
+        day: "friday",
+        open: "11:00",
+        close: "19:00",
       },
-      friday: {
-        open: "1pm",
-        close: "9pm",
-      },
-      saturday: {
-        open: "1pm",
-        close: "9pm",
-      },
-      sunday: {
-        open: "1pm",
-        close: "9pm",
-      },
-    },
+      { day: "saturday", open: "11:00", close: "19:00" },
+      { day: "sunday", open: "11:00", close: "19:00" },
+    ],
     services: vendorServicesListStatic,
     reviews: [],
   },
   {
     id: 6,
+    email: "vendor6@email.com",
     name: "Vendor 6",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium animi aliquid debitis ratione praesentium alias doloribus dolorum a labore veritatis!",
@@ -365,41 +347,37 @@ export const vendorListStatic: Vendor[] = [
     },
     phoneNumber: "6789012345",
     location: "Location 6",
-    openingHours: {
-      monday: {
-        open: "2pm",
-        close: "10pm",
+    openingHours: [
+      {
+        day: "monday",
+        open: "12:00",
+        close: "110:00",
       },
-      tuesday: {
-        open: "2pm",
-        close: "10pm",
+      {
+        day: "tuesday",
+        open: "12:00",
+        close: "110:00",
       },
-      wednesday: {
-        open: "2pm",
-        close: "10pm",
+      {
+        day: "wednesday",
+        open: "12:00",
+        close: "110:00",
       },
-      thursday: {
-        open: "2pm",
-        close: "10pm",
+      { day: "thursday", open: "12:00", close: "110:00" },
+      {
+        day: "friday",
+        open: "12:00",
+        close: "110:00",
       },
-      friday: {
-        open: "2pm",
-        close: "10pm",
-      },
-      saturday: {
-        open: "2pm",
-        close: "10pm",
-      },
-      sunday: {
-        open: "2pm",
-        close: "10pm",
-      },
-    },
+      { day: "saturday", open: "12:00", close: "110:00" },
+      { day: "sunday", open: "12:00", close: "110:00" },
+    ],
     services: vendorServicesListStatic,
     reviews: [],
   },
   {
     id: 7,
+    email: "vendor7@email.com",
     name: "Vendor 7",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium animi aliquid debitis ratione praesentium alias doloribus dolorum a labore veritatis!",
@@ -412,41 +390,37 @@ export const vendorListStatic: Vendor[] = [
     },
     phoneNumber: "7890123456",
     location: "Location 7",
-    openingHours: {
-      monday: {
-        open: "3pm",
-        close: "11pm",
+    openingHours: [
+      {
+        day: "monday",
+        open: "13:00",
+        close: "111:00",
       },
-      tuesday: {
-        open: "3pm",
-        close: "11pm",
+      {
+        day: "tuesday",
+        open: "13:00",
+        close: "111:00",
       },
-      wednesday: {
-        open: "3pm",
-        close: "11pm",
+      {
+        day: "wednesday",
+        open: "13:00",
+        close: "111:00",
       },
-      thursday: {
-        open: "3pm",
-        close: "11pm",
+      { day: "thursday", open: "13:00", close: "111:00" },
+      {
+        day: "friday",
+        open: "13:00",
+        close: "111:00",
       },
-      friday: {
-        open: "3pm",
-        close: "11pm",
-      },
-      saturday: {
-        open: "3pm",
-        close: "11pm",
-      },
-      sunday: {
-        open: "3pm",
-        close: "11pm",
-      },
-    },
+      { day: "saturday", open: "13:00", close: "111:00" },
+      { day: "sunday", open: "13:00", close: "111:00" },
+    ],
     services: vendorServicesListStatic,
     reviews: [],
   },
   {
     id: 8,
+    email: "vendor8@email.com",
     name: "Vendor 8",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium animi aliquid debitis ratione praesentium alias doloribus dolorum a labore veritatis!",
@@ -459,41 +433,37 @@ export const vendorListStatic: Vendor[] = [
     },
     phoneNumber: "8901234567",
     location: "Location 8",
-    openingHours: {
-      monday: {
-        open: "4pm",
-        close: "12am",
+    openingHours: [
+      {
+        day: "monday",
+        open: "14:00",
+        close: "12:00",
       },
-      tuesday: {
-        open: "4pm",
-        close: "12am",
+      {
+        day: "tuesday",
+        open: "14:00",
+        close: "12:00",
       },
-      wednesday: {
-        open: "4pm",
-        close: "12am",
+      {
+        day: "wednesday",
+        open: "14:00",
+        close: "12:00",
       },
-      thursday: {
-        open: "4pm",
-        close: "12am",
+      { day: "thursday", open: "14:00", close: "12:00" },
+      {
+        day: "friday",
+        open: "14:00",
+        close: "12:00",
       },
-      friday: {
-        open: "4pm",
-        close: "12am",
-      },
-      saturday: {
-        open: "4pm",
-        close: "12am",
-      },
-      sunday: {
-        open: "4pm",
-        close: "12am",
-      },
-    },
+      { day: "saturday", open: "14:00", close: "12:00" },
+      { day: "sunday", open: "14:00", close: "12:00" },
+    ],
     services: vendorServicesListStatic,
     reviews: [],
   },
   {
     id: 9,
+    email: "vendor9@email.com",
     name: "Vendor 9",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium animi aliquid debitis ratione praesentium alias doloribus dolorum a labore veritatis!",
@@ -506,41 +476,37 @@ export const vendorListStatic: Vendor[] = [
     },
     phoneNumber: "9012345678",
     location: "Location 9",
-    openingHours: {
-      monday: {
-        open: "5pm",
-        close: "1am",
+    openingHours: [
+      {
+        day: "monday",
+        open: "15:00",
+        close: "1:00",
       },
-      tuesday: {
-        open: "5pm",
-        close: "1am",
+      {
+        day: "tuesday",
+        open: "15:00",
+        close: "1:00",
       },
-      wednesday: {
-        open: "5pm",
-        close: "1am",
+      {
+        day: "wednesday",
+        open: "15:00",
+        close: "1:00",
       },
-      thursday: {
-        open: "5pm",
-        close: "1am",
+      { day: "thursday", open: "15:00", close: "1:00" },
+      {
+        day: "friday",
+        open: "15:00",
+        close: "1:00",
       },
-      friday: {
-        open: "5pm",
-        close: "1am",
-      },
-      saturday: {
-        open: "5pm",
-        close: "1am",
-      },
-      sunday: {
-        open: "5pm",
-        close: "1am",
-      },
-    },
+      { day: "saturday", open: "15:00", close: "1:00" },
+      { day: "sunday", open: "15:00", close: "1:00" },
+    ],
     services: vendorServicesListStatic,
     reviews: [],
   },
   {
     id: 10,
+    email: "vendor10@email.com",
     name: "Vendor 10",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium animi aliquid debitis ratione praesentium alias doloribus dolorum a labore veritatis!",
@@ -553,36 +519,31 @@ export const vendorListStatic: Vendor[] = [
     },
     phoneNumber: "0123456789",
     location: "Location 10",
-    openingHours: {
-      monday: {
-        open: "6pm",
-        close: "2am",
+    openingHours: [
+      {
+        day: "monday",
+        open: "16:00",
+        close: "2:00",
       },
-      tuesday: {
-        open: "6pm",
-        close: "2am",
+      {
+        day: "tuesday",
+        open: "16:00",
+        close: "2:00",
       },
-      wednesday: {
-        open: "6pm",
-        close: "2am",
+      {
+        day: "wednesday",
+        open: "16:00",
+        close: "2:00",
       },
-      thursday: {
-        open: "6pm",
-        close: "2am",
+      { day: "thursday", open: "16:00", close: "2:00" },
+      {
+        day: "friday",
+        open: "16:00",
+        close: "2:00",
       },
-      friday: {
-        open: "6pm",
-        close: "2am",
-      },
-      saturday: {
-        open: "6pm",
-        close: "2am",
-      },
-      sunday: {
-        open: "6pm",
-        close: "2am",
-      },
-    },
+      { day: "saturday", open: "16:00", close: "2:00" },
+      { day: "sunday", open: "16:00", close: "2:00" },
+    ],
     services: vendorServicesListStatic,
     reviews: [],
   },
