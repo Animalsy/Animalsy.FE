@@ -4,7 +4,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import Calendar from "../../components/Calendar";
 import { useLocation } from "react-router-dom";
 import { MutableRefObject, useRef, useState } from "react";
-import TextComponents from "../../components/TextComponents";
 import { Button } from "../../components/Touchables/Buttons";
 import { Modal, Typography } from "@mui/material";
 import ServiceList from "../../components/Vendor/ServiceList";
