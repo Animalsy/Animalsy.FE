@@ -7,6 +7,17 @@ import {
   LoginResponse,
   RegisterResponse,
 } from "./dtos/auth";
+import { Action } from "@reduxjs/toolkit";
+import { REHYDRATE } from "redux-persist";
+import { RootState } from "../redux";
+
+function isHydrateAction(action: Action): action is Action<typeof REHYDRATE> & {
+  key: string;
+  payload: RootState;
+  err: unknown;
+} {
+  return action.type === REHYDRATE;
+}
 
 export const rtkapi = createApi({
   reducerPath: "authApi",
@@ -27,6 +38,17 @@ export const rtkapi = createApi({
       }),
     }),
   }),
+  extractRehydrationInfo(action, {}): any {
+    if (isHydrateAction(action)) {
+      // when persisting the api reducer
+      if (action.key === "key used with redux-persist") {
+        return action.payload;
+      }
+
+      // When persisting the root reducer
+      return action.payload[rtkapi.reducerPath];
+    }
+  },
 });
 
 // make comment to describe the function

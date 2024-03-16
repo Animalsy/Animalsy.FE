@@ -4,17 +4,32 @@ import rootRouter from "./navigation/rootRouter";
 
 import { AppThemeProvider } from "./themes/themeProvider";
 
+import { useEffect, useState } from "react";
+
+import useJwtHook from "./hooks/jwtHook";
+import LoginModal from "./components/modals/loginModal";
+
 const App = () => {
-  // const [trigger, result] = useLoginMutation();
-  // useEffect(() => {
-  //   trigger({ password: "12345", username: "test1" });
-  // }, []);
-  // useEffect(() => {
-  //   console.log(result);
-  // }, [result]);
+  const [isLoginModalVisible, setIsLoginModalVisible] = useState(false);
+
+  const { accessToken, wasFetchingTokens } = useJwtHook();
+
+  useEffect(() => {
+    if (!accessToken && wasFetchingTokens) {
+      setIsLoginModalVisible(true);
+    } else {
+      setIsLoginModalVisible(false);
+    }
+  }, [wasFetchingTokens, accessToken]);
 
   return (
     <AppThemeProvider>
+      <LoginModal
+        isOpen={isLoginModalVisible}
+        close={() => {
+          setIsLoginModalVisible(false);
+        }}
+      />
       <div style={{ minHeight: "100dvh" }}>
         <RouterProvider router={rootRouter} />
       </div>

@@ -12,8 +12,9 @@ import {
 import { NavigationData } from "../../../../static/Navigation";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "styled-components";
-import { MdExpandLess, MdExpandMore } from "react-icons/md";
+import { MdExpandLess, MdExpandMore, MdOutlineLogout } from "react-icons/md";
 import { menuCategories } from "../../../../static/menuCategories";
+import useJwtHook from "../../../../hooks/jwtHook";
 
 export const HamburgerSidemenu = ({
   isOpen,
@@ -39,6 +40,9 @@ export const HamburgerSidemenu = ({
   };
 
   const theme = useTheme();
+
+  const { removeTokensFromStorage } = useJwtHook();
+
   return (
     <StyledMenu ref={ref} open={isOpen}>
       <HamburgerIcon isOpen={isOpen} setIsOpen={setOpen} />
@@ -127,6 +131,24 @@ export const HamburgerSidemenu = ({
               </div>
             );
           })}
+          <div key={"logoutbutton"}>
+            <ListItemButton
+              onClick={() => {
+                removeTokensFromStorage();
+                setOpen(false);
+              }}
+            >
+              <ListItemIcon>
+                <MdOutlineLogout color={theme.colors.danger} />
+              </ListItemIcon>
+              <ListItemText
+                primary={"Logout"}
+                style={{
+                  color: theme.colors.danger,
+                }}
+              />
+            </ListItemButton>
+          </div>
         </List>
       </div>
     </StyledMenu>

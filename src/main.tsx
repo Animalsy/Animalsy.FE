@@ -11,7 +11,7 @@ import persist from "./redux/persist.ts";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Provider store={persist().store}>
+    <Provider store={persist.store}>
       <App />
     </Provider>
   </React.StrictMode>
