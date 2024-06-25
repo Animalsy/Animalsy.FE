@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { PetData, } from "./GetProfile.thunk";
 import { ContentApi } from "../../../axios";
+import { PetData } from "./types/pet.types";
 
 export const postNewPetToProfile = createAsyncThunk<PetData, PetData>(
     "profile/addPet",

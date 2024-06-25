@@ -4,9 +4,9 @@ import { Button } from "../../../components/Touchables/Buttons";
 import { AddPetModal } from "../../../components/modals/AddPet.modal";
 import { PetContainer } from "./";
 import { SinglePet } from "./SinglePet";
-import { PetData } from "../../../redux/Profile/thunks/GetProfile.thunk";
 import { SlPlus } from "react-icons/sl";
 import { useTheme } from "styled-components";
+import { PetData } from "../../../redux/Profile/thunks/types/pet.types";
 
 export const PetList = ({ pets }: { pets: PetData[] | undefined }) => {
   const [isPetModalVisible, setIsPetModalVisible] = useState(false);

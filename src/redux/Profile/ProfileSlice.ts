@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ProfileData, getProfile } from "./thunks/GetProfile.thunk";
-import { updateProfile } from "./thunks/EditProfile.thunk";
+import { getProfile } from "./thunks/profile/GetProfile.thunk";
+import { updateProfile } from "./thunks/profile/EditProfile.thunk";
 import { postNewPetToProfile } from "./thunks/AddPet.thunk";
 import { deletePetToProfile } from "./thunks/DeletePet.thunk";
 import { editPetToProfile } from "./thunks/editPet.thunk";
+import { ProfileData } from "./thunks/types/profile.types";
 
 
 const initialState: {

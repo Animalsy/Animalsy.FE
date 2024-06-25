@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import PageTemplate from "../pageTemplate";
 import ProfileInformation from "./ProfileInformation";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { getProfile } from "../../redux/Profile/thunks/GetProfile.thunk";
+import { getProfile } from "../../redux/Profile/thunks/profile/GetProfile.thunk";
 import EditProfileInfoModal from "../../components/modals/EditProfileInfo.modal";
 import { PetList } from "./Pets";
+import { VisitList } from "./Visits";
 
 export interface ProfilePageProps {
   prop?: string;
@@ -39,6 +40,7 @@ const ProfilePage = () => {
           }}
         />
         <PetList pets={profile?.pets} />
+        <VisitList visits={profile?.visits} />
       </div>
     </PageTemplate>
   );

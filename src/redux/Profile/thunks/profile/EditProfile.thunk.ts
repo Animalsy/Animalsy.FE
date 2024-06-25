@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ProfileData } from "./GetProfile.thunk";
-import { ContentApi } from "../../../axios";
+import { ContentApi } from "../../../../axios";
+import { ProfileData } from "../types/profile.types";
 
 export const updateProfile = createAsyncThunk<ProfileData['customer'], ProfileData["customer"]>(
     "profile/updateProfile",

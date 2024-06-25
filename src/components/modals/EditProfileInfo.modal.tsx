@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import CustomModal from ".";
 import { TextField } from "@mui/material";
-import { ProfileData } from "../../redux/Profile/thunks/GetProfile.thunk";
 import { Button } from "../Touchables/Buttons";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { updateProfile } from "../../redux/Profile/thunks/EditProfile.thunk";
 import TextComponents from "../TextComponents";
 import { useTheme } from "styled-components";
+import { ProfileData } from "../../redux/Profile/thunks/types/profile.types";
+import { updateProfile } from "../../redux/Profile/thunks/profile/EditProfile.thunk";
 
 interface EditProfileInfoModalProps {
   isOpen: boolean;

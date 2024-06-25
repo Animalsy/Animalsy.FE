@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CustomModal from ".";
-import { PetData } from "../../redux/Profile/thunks/GetProfile.thunk";
+import { PetData } from "../../redux/Profile/thunks/types/pet.types";
 import { TextField } from "@mui/material";
 import useJwtHook from "../../hooks/jwtHook";
 import TextComponents from "../TextComponents";

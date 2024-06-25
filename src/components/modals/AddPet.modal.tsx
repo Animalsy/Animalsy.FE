@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import CustomModal from ".";
-import { initialPetData } from "../../redux/Profile/thunks/GetProfile.thunk";
 import { TextField } from "@mui/material";
 import useJwtHook from "../../hooks/jwtHook";
 import TextComponents from "../TextComponents";
 import { Button } from "../Touchables/Buttons";
 import { useAppDispatch } from "../../hooks/redux";
 import { postNewPetToProfile } from "../../redux/Profile/thunks/AddPet.thunk";
+import { initialPetData } from "../../redux/Profile/thunks/types/pet.types";
 
 export const AddPetModal = ({
   isModalOpen,

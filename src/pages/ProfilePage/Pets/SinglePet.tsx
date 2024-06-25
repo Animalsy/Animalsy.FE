@@ -1,5 +1,5 @@
 import TextComponents from "../../../components/TextComponents";
-import { PetData } from "../../../redux/Profile/thunks/GetProfile.thunk";
+import { PetData } from "../../../redux/Profile/thunks//types/pet.types";
 import { PetImage, SinglePetContainer } from "./SinglePet.styled";
 import { squareLogo } from "../../../assets/logo";
 import { DisplayPet } from "../../../components/modals/DisplayPet.modal";

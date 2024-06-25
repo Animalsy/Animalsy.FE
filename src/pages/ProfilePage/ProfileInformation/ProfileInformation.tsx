@@ -1,6 +1,6 @@
 import TextComponents from "../../../components/TextComponents";
+import { ProfileData } from "../../../redux/Profile/thunks/types/profile.types";
 import { Container } from "./ProfileInformation.styled";
-import { ProfileData } from "../../../redux/Profile/thunks/GetProfile.thunk";
 import { MdEdit } from "react-icons/md";
 
 export interface ProfileInformationProps {
