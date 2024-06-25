@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { StyledMenu } from "./Hamburger.styled";
 import useOnClickOutside from "../../../../hooks/clickOutside";
 import { HamburgerIcon } from ".";
@@ -20,8 +20,8 @@ import {
 } from "react-icons/md";
 import { menuCategories } from "../../../../static/menuCategories";
 import useJwtHook from "../../../../hooks/jwtHook";
-import { useAppDispatch } from "../../../../hooks/redux";
-import { setIsModalOpen } from "../../../../redux/appsetup";
+import { useAppDispatch, useAppSelector } from "../../../../hooks/redux";
+import { setIsLoggedIn, setIsModalOpen } from "../../../../redux/appsetup";
 
 export const HamburgerSidemenu = ({
   isOpen,
@@ -45,13 +45,13 @@ export const HamburgerSidemenu = ({
     if (!data.nestedNavitems || data.nestedNavitems?.length == 0)
       navigate(data.navigateTo);
   };
-  const { accessToken } = useJwtHook();
 
   const theme = useTheme();
 
   const { removeTokenAndUserIdFromStorage } = useJwtHook();
 
   const dispatch = useAppDispatch();
+  const { isLoggedIn } = useAppSelector((state) => state.appsetup);
 
   return (
     <StyledMenu ref={ref} open={isOpen}>
@@ -144,24 +144,26 @@ export const HamburgerSidemenu = ({
           <div key={"logoutbutton"}>
             <ListItemButton
               onClick={() => {
-                if (accessToken) {
+                if (isLoggedIn) {
                   removeTokenAndUserIdFromStorage();
                   setOpen(false);
+                  dispatch(setIsLoggedIn(false));
                 } else {
                   setOpen(false);
+                  dispatch(setIsLoggedIn(true));
                   dispatch(setIsModalOpen(true));
                 }
               }}
             >
               <ListItemIcon>
-                {!accessToken ? (
+                {isLoggedIn ? (
                   <MdOutlineLogin color={theme.colors.danger} />
                 ) : (
                   <MdOutlineLogout color={theme.colors.danger} />
                 )}{" "}
               </ListItemIcon>
               <ListItemText
-                primary={!accessToken ? "Login" : "Logout"}
+                primary={!isLoggedIn ? "Login" : "Logout"}
                 style={{
                   color: theme.colors.danger,
                 }}

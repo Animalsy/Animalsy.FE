@@ -130,7 +130,7 @@ type Category = {
   subcategories: string[];
 };
 
-const category: Category = {
+export const category: Category = {
   category: "Pet Grooming",
   subcategories: [
     "Spa Treatments",
@@ -144,6 +144,6 @@ const category: Category = {
 const categorylist: Category[] = [];
 
 categorylist.find((category) => category.category === "Pet Grooming");
-const vendorlist = categorylist.filter((category) =>
+export const vendorlist = categorylist.filter((category) =>
   category.subcategories.includes("Bathing")
 );

@@ -52,7 +52,6 @@ const profileSlice = createSlice({
         // CODEPART: updateProfile
         builder.addCase(updateProfile.fulfilled, (state, action) => {
             if (state.profile && state.profile.customer) {
-
                 state.profile.customer = action.meta.arg;
                 state.loading = false;
                 state.error = null;

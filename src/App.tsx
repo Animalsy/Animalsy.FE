@@ -4,12 +4,12 @@ import rootRouter from "./navigation/rootRouter";
 
 import { AppThemeProvider } from "./themes/themeProvider";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import useJwtHook from "./hooks/jwtHook";
 import LoginModal from "./components/modals/loginModal";
 import { useAppDispatch, useAppSelector } from "./hooks/redux";
-import { setIsModalOpen } from "./redux/appsetup";
+import { setIsLoggedIn, setIsModalOpen } from "./redux/appsetup";
 
 const App = () => {
   const { isLoginModalOpen } = useAppSelector((state) => state.appsetup);
@@ -17,10 +17,15 @@ const App = () => {
   const { accessToken, wasFetchingToken } = useJwtHook();
 
   useEffect(() => {
+    dispatch(setIsLoggedIn(false));
     if (!accessToken && wasFetchingToken) {
+      dispatch(setIsModalOpen(true));
+      dispatch(setIsLoggedIn(false));
+    } else if (accessToken && wasFetchingToken) {
       dispatch(setIsModalOpen(false));
+      dispatch(setIsLoggedIn(true));
     } else {
-      dispatch(setIsModalOpen(false));
+      dispatch(setIsModalOpen(true));
     }
   }, [wasFetchingToken, accessToken]);
 

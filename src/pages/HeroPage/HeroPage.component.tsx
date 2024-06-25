@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import {
   ContentContainer,
   VideoContainer,
@@ -8,7 +8,7 @@ import {
 import TextComponents from "../../components/TextComponents";
 import PageTemplate from "../pageTemplate";
 import { Button } from "../../components/Touchables/Buttons";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { TopRatedEstablishments } from "../../static/establishments";
 import { SmallEstablishmentDisplay } from "../../components/Displays/SmallEstablishmentDisplay/SmallEstablishmentDisplay";
 import FavCategoriesSection from "./Sections/CategoriesDisplay/FavCategoriesSection";
@@ -16,10 +16,22 @@ import { WhyChooseUsSection } from "./Sections/WhyChooseUs/WhyChooseUs.section";
 import herovideo from "../../assets/video/video.mp4";
 import StroryServices from "./Sections/Story&Services/StroryServices.section";
 import CollaboratorsAboutUs from "./Sections/CollaboratorsAboutUs/CollaboratorsAboutUs.section";
+import useJwtHook from "../../hooks/jwtHook";
+import { useAppDispatch } from "../../hooks/redux";
+import { setIsModalOpen } from "../../redux/appsetup";
 
 const HeroPage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const location = useLocation();
   const navigate = useNavigate();
+  const { accessToken } = useJwtHook();
+  const dispatch = useAppDispatch();
+  useLayoutEffect(() => {
+    if (!accessToken) {
+      dispatch(setIsModalOpen(true));
+    }
+  }, [location]);
+
   return (
     <PageTemplate>
       <HeroContainer>

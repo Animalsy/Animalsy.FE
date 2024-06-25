@@ -14,8 +14,7 @@ export const updateProfile = createAsyncThunk<ProfileData['customer'], ProfileDa
             )
             return profileData;
         } catch (error: any) {
-            console.error(error.response.data.errors)
-            return rejectWithValue(error.response.data.errors.flatMap((error: any) => error.errorMessage));
+            return rejectWithValue(error.response.data.errors.flatMap((error: any) => error.errorMessage).join('\n'));
         }
     }
 )

@@ -4,6 +4,7 @@ interface AppSetupState {
     isLoading: boolean;
     error: string | null;
     isLoginModalOpen: boolean;
+    isLoggedIn: boolean;
     // Add more state properties as needed
 }
 
@@ -11,6 +12,7 @@ const initialState: AppSetupState = {
     isLoading: false,
     error: null,
     isLoginModalOpen: false,
+    isLoggedIn: false,
 };
 
 const appSetupSlice = createSlice({
@@ -25,11 +27,14 @@ const appSetupSlice = createSlice({
         },
         setIsModalOpen: (state, action: PayloadAction<boolean>) => {
             state.isLoginModalOpen = action.payload;
+        },
+        setIsLoggedIn: (state, action: PayloadAction<boolean>) => {
+            state.isLoggedIn = action.payload;
         }
         // Add more reducers as needed
     },
 });
 
-export const { setLoading, setError, setIsModalOpen } = appSetupSlice.actions;
+export const { setLoading, setError, setIsModalOpen, setIsLoggedIn } = appSetupSlice.actions;
 
 export default appSetupSlice.reducer;

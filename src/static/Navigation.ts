@@ -1,7 +1,6 @@
 import {
   CiHome,
   CiBag1,
-  CiDiscount1,
   CiPassport1,
   CiPhone,
 } from "react-icons/ci";
