@@ -6,11 +6,12 @@ export interface ModalProps {
   children?: React.ReactNode;
   isOpen: boolean;
   close: () => void;
+  scrollable?: boolean;
 }
 const CustomModal = ({ close, isOpen, children }: ModalProps) => {
   return (
     <CustomModalStyled open={isOpen}>
-      <CustomCard>
+      <CustomCard style={{ overflow: "auto", paddingTop: "2rem" }}>
         <MdClose
           onClick={close}
           style={{
@@ -21,6 +22,7 @@ const CustomModal = ({ close, isOpen, children }: ModalProps) => {
             alignItems: "center",
             justifyContent: "center",
           }}
+          color="black"
         />
         <>{children}</>
       </CustomCard>

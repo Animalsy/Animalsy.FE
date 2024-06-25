@@ -4,6 +4,7 @@ import { ServicesPage } from "../pages/ServicesPage";
 import Vendors from "../pages/Vendors";
 import NotFound from "../pages/NotFound";
 import BookAVisitPage from "../pages/BookAVisitPage";
+import { ProfilePage } from "../pages/ProfilePage";
 
 const rootRouter = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const rootRouter = createBrowserRouter([
   {
     path: "bookvisit/:vendorId/:serviceId",
     element: <BookAVisitPage />,
+  },
+  {
+    path: "/profile",
+    element: <ProfilePage />,
   },
   {
     path: "/*",

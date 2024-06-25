@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { StyledMenu } from "./Hamburger.styled";
 import useOnClickOutside from "../../../../hooks/clickOutside";
 import { HamburgerIcon } from ".";
@@ -12,9 +12,16 @@ import {
 import { NavigationData } from "../../../../static/Navigation";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "styled-components";
-import { MdExpandLess, MdExpandMore, MdOutlineLogout } from "react-icons/md";
+import {
+  MdExpandLess,
+  MdExpandMore,
+  MdOutlineLogin,
+  MdOutlineLogout,
+} from "react-icons/md";
 import { menuCategories } from "../../../../static/menuCategories";
 import useJwtHook from "../../../../hooks/jwtHook";
+import { useAppDispatch } from "../../../../hooks/redux";
+import { setIsModalOpen } from "../../../../redux/appsetup";
 
 export const HamburgerSidemenu = ({
   isOpen,
@@ -38,10 +45,13 @@ export const HamburgerSidemenu = ({
     if (!data.nestedNavitems || data.nestedNavitems?.length == 0)
       navigate(data.navigateTo);
   };
+  const { accessToken } = useJwtHook();
 
   const theme = useTheme();
 
-  const { removeTokensFromStorage } = useJwtHook();
+  const { removeTokenAndUserIdFromStorage } = useJwtHook();
+
+  const dispatch = useAppDispatch();
 
   return (
     <StyledMenu ref={ref} open={isOpen}>
@@ -134,15 +144,24 @@ export const HamburgerSidemenu = ({
           <div key={"logoutbutton"}>
             <ListItemButton
               onClick={() => {
-                removeTokensFromStorage();
-                setOpen(false);
+                if (accessToken) {
+                  removeTokenAndUserIdFromStorage();
+                  setOpen(false);
+                } else {
+                  setOpen(false);
+                  dispatch(setIsModalOpen(true));
+                }
               }}
             >
               <ListItemIcon>
-                <MdOutlineLogout color={theme.colors.danger} />
+                {!accessToken ? (
+                  <MdOutlineLogin color={theme.colors.danger} />
+                ) : (
+                  <MdOutlineLogout color={theme.colors.danger} />
+                )}{" "}
               </ListItemIcon>
               <ListItemText
-                primary={"Logout"}
+                primary={!accessToken ? "Login" : "Logout"}
                 style={{
                   color: theme.colors.danger,
                 }}

@@ -1,94 +1,87 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CustomModal, { ModalProps } from ".";
 import { useLoginMutation } from "../../apicomunication";
 import useJwtHook from "../../hooks/jwtHook";
-import { TextField, Button } from "@mui/material";
-import { squareLogo } from "../../assets/logo";
+import { LoginForm } from "./forms/loginForm";
+import RegisterForm from "./forms/RegisterForm";
+import {
+  ILoginForm,
+  ILoginFormErrors,
+  loginFormSchema,
+} from "./forms/loginForm.validation";
+import api from "../../axios";
 
 interface Props extends Omit<ModalProps, "childen"> {}
 
 const LoginModal = ({ close, isOpen }: Props) => {
-  const [state, setState] = useState({
-    username: "",
+  const [state, setState] = useState<ILoginForm>({
+    email: "",
     password: "",
   });
-  const { updateTokens } = useJwtHook();
+
+  const [errors, setErrors] = useState<ILoginFormErrors>({});
+  const { updateTokenAndUserId } = useJwtHook();
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setState((prevState) => ({
-      ...prevState,
-      [event.target.name]: event.target.value,
-    }));
-  };
-
   const [error, seterror] = useState<string | null>(null);
+  const [trigger, result] = useLoginMutation();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    trigger({ username: state.username, password: state.password });
+  const handleSubmit = () => {
+    // validate the form with the schema
+    // if it's invalid, set the errors
+    // otherwise, call the login mutation
+
+    loginFormSchema
+      .validate(state, { abortEarly: false })
+      .then(() => {
+        setErrors({});
+        trigger({ email: state.email, password: state.password });
+      })
+      .catch((err) => {
+        const newErrors: ILoginFormErrors = {};
+        err.inner.forEach((error: any) => {
+          newErrors[error.path as keyof ILoginForm] = error.message;
+        });
+        setErrors(newErrors);
+      });
+
     // Add your login logic here using the state values
   };
 
-  const [trigger, result] = useLoginMutation();
-
   useEffect(() => {
+    const { error } = result;
+    console.error(error);
     const { isLoading, data } = result;
     setIsLoading(isLoading);
-    if (data && data?.success) {
-      updateTokens(data.data.accessToken, data.data.refreshToken);
+
+    if (data && data?.isSuccess) {
+      updateTokenAndUserId(data.result.token, data.result.userId);
+      api.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${data.result.token}`;
       close();
     } else {
-      seterror(data && data.error ? data?.error : null);
+      seterror("login failed, please try again");
     }
   }, [result]);
+  const [isLoginForm, setIsLoginForm] = useState(true);
 
   return (
     <CustomModal close={close} isOpen={isOpen}>
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: ".4rem",
-        }}
-      >
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          <>
-            <img src={squareLogo} alt="logo" />
-            <TextField
-              type="text"
-              name="username"
-              placeholder="Username"
-              value={state.username}
-              onChange={handleChange}
-              variant="outlined" // Apply modern styling
-              fullWidth // Take up full width of the parent container
-              margin="normal" // Add some spacing
-            />
-            <TextField
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={state.password}
-              onChange={handleChange}
-              variant="outlined" // Apply modern styling
-              fullWidth // Take up full width of the parent container
-              margin="normal" // Add some spacing
-            />
-            {error && <p>{error}</p>}
-            <Button type="submit" variant="contained" color="primary">
-              Login
-            </Button>
-          </>
-        )}
-      </form>
+      {isLoginForm ? (
+        <LoginForm
+          errors={errors}
+          error={error}
+          handleSubmit={handleSubmit}
+          isLoading={isLoading}
+          setState={setState}
+          state={state}
+          setIsLoginForm={setIsLoginForm}
+        />
+      ) : (
+        <RegisterForm setIsLoginForm={setIsLoginForm} />
+      )}
     </CustomModal>
   );
 };

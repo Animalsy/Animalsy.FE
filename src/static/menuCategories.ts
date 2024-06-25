@@ -124,3 +124,26 @@ export const menuCategories = [
     ],
   },
 ];
+
+type Category = {
+  category: string;
+  subcategories: string[];
+};
+
+const category: Category = {
+  category: "Pet Grooming",
+  subcategories: [
+    "Spa Treatments",
+    "Dental Care",
+    "Nail Trimming",
+    "Haircuts",
+    "Bathing",
+  ],
+};
+
+const categorylist: Category[] = [];
+
+categorylist.find((category) => category.category === "Pet Grooming");
+const vendorlist = categorylist.filter((category) =>
+  category.subcategories.includes("Bathing")
+);

@@ -9,6 +9,7 @@ export const CustomModalStyled = styled(Modal)`
   align-items: center;
   justify-content: center;
   display: flex;
+  position: relative;
 `;
 
 export const CustomCard = styled(Card)`

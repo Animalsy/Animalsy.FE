@@ -47,21 +47,4 @@ export const NavigationData: NavigationData[] = [
       { name: "Pet Supplies", navigateTo: "/supplies" },
     ],
   },
-  {
-    name: "Specials",
-    navigateTo: "/specials",
-    icon: CiDiscount1,
-    nestedNavitems: [
-      { name: "Pet Grooming", navigateTo: "/grooming" },
-      { name: "Pet Insurance", navigateTo: "/insurance" },
-      { name: "Pet Photography", navigateTo: "/photography" },
-      { name: "Veterinary Care", navigateTo: "/care" },
-      { name: "Pet Transport", navigateTo: "/transport" },
-      { name: "Pet Boarding", navigateTo: "/boarding" },
-      { name: "Pet Training", navigateTo: "/training" },
-      { name: "Pet Sitting", navigateTo: "/sitting" },
-      { name: "Pet Adoption", navigateTo: "/adoption" },
-      { name: "Pet Supplies", navigateTo: "/supplies" },
-    ],
-  },
 ];

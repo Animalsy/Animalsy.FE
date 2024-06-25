@@ -2,7 +2,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import api from "../axios";
 import {
-  ILoginDTO,
   IRegisterDTO,
   LoginResponse,
   RegisterResponse,
@@ -10,6 +9,7 @@ import {
 import { Action } from "@reduxjs/toolkit";
 import { REHYDRATE } from "redux-persist";
 import { RootState } from "../redux";
+import { ILoginForm } from "../components/modals/forms/loginForm.validation";
 
 function isHydrateAction(action: Action): action is Action<typeof REHYDRATE> & {
   key: string;
@@ -21,11 +21,12 @@ function isHydrateAction(action: Action): action is Action<typeof REHYDRATE> & {
 
 export const rtkapi = createApi({
   reducerPath: "authApi",
-  baseQuery: fetchBaseQuery({ baseUrl: api.defaults.baseURL + "/auth/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: api.defaults.baseURL }),
   endpoints: (builder) => ({
-    login: builder.mutation<LoginResponse, ILoginDTO>({
+
+    login: builder.mutation<LoginResponse, ILoginForm>({
       query: (credentials) => ({
-        url: "login",
+        url: "/Auth/Login",
         method: "POST",
         body: credentials,
       }),
@@ -38,7 +39,7 @@ export const rtkapi = createApi({
       }),
     }),
   }),
-  extractRehydrationInfo(action, {}): any {
+  extractRehydrationInfo(action, { }): any {
     if (isHydrateAction(action)) {
       // when persisting the api reducer
       if (action.key === "key used with redux-persist") {

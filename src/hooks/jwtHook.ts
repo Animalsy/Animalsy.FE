@@ -1,55 +1,56 @@
 import { useState, useEffect } from "react";
-import localStorage from "redux-persist/es/storage";
+
 
 const useJwtHook = () => {
   const [accessToken, setAccessToken] = useState<string | null>();
-  const [refreshToken, setRefreshToken] = useState<string | null>();
-  const [wasFetchingTokens, setWasFetchingTokens] = useState(false);
+  const [userId, setUserId] = useState<string | null>(); // Add userId state
+  const [wasFetchingToken, setWasFetchingToken] = useState(false);
 
   useEffect(() => {
-    // Load tokens from session storage on component mount
-    localStorage.getItem("accessToken").then((res) => {
-      if (res) {
-        setAccessToken(res);
+    // Load token and userId from session storage on component mount
+    Promise.all([
+      localStorage.getItem("accessToken"),
+      localStorage.getItem("userId"),
+    ]).then(([token, id]) => {
+      if (token) {
+        setAccessToken(token);
       } else {
         setAccessToken(null);
+        setWasFetchingToken(false)
       }
-    });
-
-    localStorage.getItem("refreshToken").then((res) => {
-      if (res) {
-        setRefreshToken(res);
+      if (id) {
+        setUserId(id);
       } else {
-        setRefreshToken(null);
+        setUserId(null);
       }
     });
-    setWasFetchingTokens(true);
+    setWasFetchingToken(true);
   }, []);
 
-  const saveTokensToStorage = (accessToken: string, refreshToken: string) => {
-    // Save tokens to session storage
-    localStorage.setItem("accessToken", accessToken);
-    localStorage.setItem("refreshToken", refreshToken);
+  const saveTokenAndUserIdToStorage = (token: string, id: string) => {
+    // Save token and userId to session storage
+    localStorage.setItem("accessToken", token);
+    localStorage.setItem("userId", id);
   };
 
-  const removeTokensFromStorage = () => {
-    // Remove tokens from session storage
+  const removeTokenAndUserIdFromStorage = () => {
+    // Remove token and userId from session storage
     localStorage.removeItem("accessToken");
-    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("userId");
   };
 
-  const updateTokens = (newAccessToken: string, newRefreshToken: string) => {
-    setAccessToken(newAccessToken);
-    setRefreshToken(newRefreshToken);
-    saveTokensToStorage(newAccessToken, newRefreshToken);
+  const updateTokenAndUserId = (newToken: string, newId: string) => {
+    setAccessToken(newToken);
+    setUserId(newId);
+    saveTokenAndUserIdToStorage(newToken, newId);
   };
 
   return {
     accessToken,
-    refreshToken,
-    wasFetchingTokens,
-    updateTokens,
-    removeTokensFromStorage,
+    userId, // Include userId in the returned object
+    wasFetchingToken,
+    updateTokenAndUserId, // Update the function name
+    removeTokenAndUserIdFromStorage, // Update the function name
   };
 };
 

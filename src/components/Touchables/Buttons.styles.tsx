@@ -32,7 +32,7 @@ export const ButtonComponent = styled.button<{
     return "none";
   }};
   color: ${(props) => {
-    if (props.buttonType === "outlined") return props.theme.colors.text;
+    if (props.buttonType === "outlined") return props.theme.colors.primaryDark;
     return props.textColor ? props.textColor : props.theme.colors.primaryLight;
   }};
   text-transform: capitalize;

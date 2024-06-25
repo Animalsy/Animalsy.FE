@@ -8,26 +8,30 @@ import { useEffect, useState } from "react";
 
 import useJwtHook from "./hooks/jwtHook";
 import LoginModal from "./components/modals/loginModal";
+import { useAppDispatch, useAppSelector } from "./hooks/redux";
+import { setIsModalOpen } from "./redux/appsetup";
 
 const App = () => {
-  const [isLoginModalVisible, setIsLoginModalVisible] = useState(false);
+  const { isLoginModalOpen } = useAppSelector((state) => state.appsetup);
 
-  const { accessToken, wasFetchingTokens } = useJwtHook();
+  const { accessToken, wasFetchingToken } = useJwtHook();
 
   useEffect(() => {
-    if (!accessToken && wasFetchingTokens) {
-      setIsLoginModalVisible(true);
+    if (!accessToken && wasFetchingToken) {
+      dispatch(setIsModalOpen(false));
     } else {
-      setIsLoginModalVisible(false);
+      dispatch(setIsModalOpen(false));
     }
-  }, [wasFetchingTokens, accessToken]);
+  }, [wasFetchingToken, accessToken]);
+
+  const dispatch = useAppDispatch();
 
   return (
     <AppThemeProvider>
       <LoginModal
-        isOpen={isLoginModalVisible}
+        isOpen={isLoginModalOpen}
         close={() => {
-          setIsLoginModalVisible(false);
+          dispatch(setIsModalOpen(false));
         }}
       />
       <div style={{ minHeight: "100dvh" }}>

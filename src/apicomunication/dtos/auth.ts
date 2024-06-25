@@ -19,21 +19,22 @@ export interface IRegisterDTO {
 }
 
 export interface ILoginDTO {
-  username: string;
+  email: string;
   password: string;
 }
 export interface CustomResponse {
-  success: boolean;
-  message: string;
-  error?: string;
+  isSuccess: boolean
+  message: string
 }
-export interface LoginResponse
-  extends AxiosResponse<{
-      accessToken: string;
-      refreshToken: string;
-    }>,
-    CustomResponse {}
+export interface LoginResponse {
+  isSuccess: true,
+  result: {
+    userId: string,
+    token: string,
+  },
+  message: "User logged in"
+}
 
 export interface RegisterResponse
   extends AxiosResponse<RegisterResponse>,
-    CustomResponse {}
+  CustomResponse { }

@@ -61,3 +61,5 @@ export const Text = styled.h4<{
     cursor: ${(props) => props.type === "Link" && "pointer"};
   }
 `;
+
+export const SmallText = styled.p``;

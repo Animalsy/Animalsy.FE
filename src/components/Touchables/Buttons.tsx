@@ -2,7 +2,12 @@ import React, { ButtonHTMLAttributes } from "react";
 import { ButtonComponent } from "./Buttons.styles";
 import { CiSearch } from "react-icons/ci";
 
-export type ButtonType = "search" | "menu" | "none" | "outlined";
+export type ButtonType =
+  | "search"
+  | "menu"
+  | "none"
+  | "outlined"
+  | "outlined_dark";
 
 export const Button = ({
   children,
