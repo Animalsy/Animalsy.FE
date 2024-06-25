@@ -4,6 +4,7 @@ import ProfileInformation from "./ProfileInformation";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { getProfile } from "../../redux/Profile/thunks/GetProfile.thunk";
 import EditProfileInfoModal from "../../components/modals/EditProfileInfo.modal";
+import { PetList } from "./Pets";
 
 export interface ProfilePageProps {
   prop?: string;
@@ -37,6 +38,7 @@ const ProfilePage = () => {
             setEditProfileModalOpen(true);
           }}
         />
+        <PetList pets={profile?.pets} />
       </div>
     </PageTemplate>
   );

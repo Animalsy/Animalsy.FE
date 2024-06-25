@@ -10,6 +10,7 @@ export const CustomModalStyled = styled(Modal)`
   justify-content: center;
   display: flex;
   position: relative;
+  
 `;
 
 export const CustomCard = styled(Card)`
