@@ -6,6 +6,7 @@ position: relative;
     flex-direction: column;
     justify-content: center;
     background-color: ${({ theme }) => theme.colors.primaryDark};
+    padding: .5rem;
 
     @media (min-width: ${AppSizes.breakpoints.xSmall}px) {
         padding:1rem;

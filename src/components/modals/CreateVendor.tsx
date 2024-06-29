@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CustomModal from ".";
 import {
+  Vendor,
   initialStateCreateVendor,
   vendorSchema,
 } from "../../redux/Profile/thunks/types/vendor.types";
@@ -10,13 +11,16 @@ import { squareLogo } from "../../assets/logo";
 import { createVndorThunk } from "../../redux/Profile/Vendor/thunk/createVendor";
 import { useAppDispatch } from "../../hooks/redux";
 import TextComponents from "../TextComponents";
+import { editVendorThunk } from "../../redux/Profile/Vendor/thunk/editVendor.thunk";
 
 export const CreateVendorModal: React.FC<{
   isOpen: boolean;
   onClose: () => void;
+  vendor?: Vendor | undefined;
+  edit?: boolean;
 }> = (props) => {
   const [createVendorForm, setCreateVendorForm] = useState(
-    initialStateCreateVendor
+    props.vendor ? props.vendor : initialStateCreateVendor
   );
   const [error, setError] = useState<string | null>();
 
@@ -32,6 +36,18 @@ export const CreateVendorModal: React.FC<{
     try {
       await vendorSchema.validate(createVendorForm, { abortEarly: false });
       dispatch(createVndorThunk(createVendorForm));
+      setError(null);
+    } catch (error: any) {
+      // Handle validation errors
+
+      setError(error.errors[0]);
+    }
+  };
+
+  const handleEditVendor = async () => {
+    try {
+      await vendorSchema.validate(createVendorForm, { abortEarly: false });
+      dispatch(editVendorThunk(createVendorForm));
       setError(null);
     } catch (error: any) {
       // Handle validation errors
@@ -164,11 +180,11 @@ export const CreateVendorModal: React.FC<{
       </TextComponents.Body>
       <Button
         onClick={() => {
-          handleCreateVendor();
+          props.edit ? handleEditVendor() : handleCreateVendor();
         }}
         style={{ alignSelf: "center" }}
       >
-        Add new Vendor
+        {props.edit ? "Edit Vendor" : "Add new Vendor"}
       </Button>
     </CustomModal>
   );

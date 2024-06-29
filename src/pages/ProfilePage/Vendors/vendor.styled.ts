@@ -10,6 +10,7 @@ export const VendorContainer = styled.div`
   border-radius: .2rem;
   justify-content: space-around;
   cursor: pointer;
+  position: relative;
 
     @media (max-width: ${AppSizes.breakpoints.medium}px) {
         padding: 1rem;

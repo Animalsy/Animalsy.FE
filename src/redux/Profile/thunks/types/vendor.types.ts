@@ -20,6 +20,7 @@ export type CreateVendor = Omit<Vendor, 'id'>;
 export type UpdateVendor = Partial<Vendor>;
 
 export const vendorSchema = yup.object().shape({
+    id: yup.string(),
     userId: yup.string(),
     name: yup.string().required('Name is required.'),
     nip: yup.string().required('NIP is required.').matches(/^[0-9]{10}$/, 'NIP must be a 10-digit number.'),
