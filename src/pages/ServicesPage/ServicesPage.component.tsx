@@ -86,7 +86,7 @@ const ServicesPage = ({ type }: { type: "services" | "specials" }) => {
             setSearchableFilter={setSearchableFilter}
           />
           <Tooltip placement="top" title="Search for a service" arrow>
-            <Button buttonType="outlined" onClick={hadleSearch}>
+            <Button buttontype="outlined" onClick={hadleSearch}>
               Search
             </Button>
           </Tooltip>

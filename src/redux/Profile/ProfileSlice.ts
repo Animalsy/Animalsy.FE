@@ -118,8 +118,6 @@ const profileSlice = createSlice({
         })
 
 
-        // CODEPART: defaultCase
-        builder.addDefaultCase((state) => state);
     }
 
 });

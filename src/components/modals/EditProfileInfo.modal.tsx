@@ -149,7 +149,7 @@ const EditProfileInfoModal: React.FC<EditProfileInfoModalProps> = ({
           justifyContent: "space-evenly",
         }}
       >
-        <Button buttonType="outlined" textColor={"black"} onClick={onClose}>
+        <Button buttontype="outlined" onClick={onClose}>
           cancel
         </Button>
         <Button

@@ -1,6 +1,6 @@
 const LightColorTheme = {
   primaryDark: "#203e59",
-  primaryDarkO: "#203e5990",
+  primaryDarkO: "#203e5950",
   primaryDark400: "#203e5920",
   primary: "#5C93C4",
   primaryLight: "#aec9e1",
@@ -19,6 +19,7 @@ const LightColorTheme = {
 };
 const DarkColorTheme = {
   primaryDark: "#001e2f",
+  primaryDarkO: "#001e2f50",
   primaryDark400: "#001e2f20",
   primary: "#264a6d",
   primaryLight: "#406994",

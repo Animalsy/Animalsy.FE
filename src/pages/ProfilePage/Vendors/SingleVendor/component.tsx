@@ -91,8 +91,8 @@ const SingleVendor = (props: Props) => {
         </TextComponents.Body>
 
         <Button
-          backgroundColor={theme.colors.accent}
-          textColor={theme.colors.text}
+          backgroundcolor={theme.colors.accent}
+          textcolor={theme.colors.text}
           style={{ alignSelf: "flex-end" }}
           onClick={() => {
             navigate(`/vendors/${vendor.id}`);

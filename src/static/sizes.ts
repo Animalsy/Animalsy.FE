@@ -1,5 +1,6 @@
 const AppSizes = {
   appbarHeight: "2rem",
+  appbarHeightNum: 2,
   breakpoints: {
     xSmall: 576,
     small: 768,

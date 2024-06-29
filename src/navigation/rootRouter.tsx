@@ -5,6 +5,7 @@ import Vendors from "../pages/Vendors";
 import NotFound from "../pages/NotFound";
 import BookAVisitPage from "../pages/BookAVisitPage";
 import { ProfilePage } from "../pages/ProfilePage";
+import { VendorPage } from "../pages/VendorPage";
 
 const rootRouter = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const rootRouter = createBrowserRouter([
   {
     path: "/profile",
     element: <ProfilePage key={document.location.href} />,
+  },
+  {
+    path: "/profile/vendors/:vendorId",
+    element: <VendorPage key={document.location.href} />,
   },
   {
     path: "/*",

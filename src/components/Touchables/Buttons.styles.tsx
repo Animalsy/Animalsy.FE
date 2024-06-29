@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { ButtonType } from "./Buttons";
 
 export const ButtonComponent = styled.button<{
-  backgroundColor?: string;
-  textColor?: string;
-  buttonType?: ButtonType;
+  backgroundcolor?: string;
+  textcolor?: string;
+  buttontype?: ButtonType;
 }>`
   padding: 0.5rem 2rem;
   border-radius: 1rem;
@@ -18,22 +18,22 @@ export const ButtonComponent = styled.button<{
   transition: all 100ms;
   cursor: pointer;
   background-color: ${(props) => {
-    if (props.buttonType === "outlined") {
+    if (props.buttontype === "outlined") {
       return "transparent";
     }
-    return props.backgroundColor
-      ? props.backgroundColor
+    return props.backgroundcolor
+      ? props.backgroundcolor
       : props.theme.colors.primaryDark;
   }};
   border: ${(props) => {
-    if (props.buttonType === "outlined") {
+    if (props.buttontype === "outlined") {
       return `2px solid ${props.theme.colors.text}`;
     }
     return "none";
   }};
   color: ${(props) => {
-    if (props.buttonType === "outlined") return props.theme.colors.primaryDark;
-    return props.textColor ? props.textColor : props.theme.colors.primaryLight;
+    if (props.buttontype === "outlined") return props.theme.colors.primaryDark;
+    return props.textcolor ? props.textcolor : props.theme.colors.primaryLight;
   }};
   text-transform: capitalize;
   height: fit-content;
@@ -41,11 +41,11 @@ export const ButtonComponent = styled.button<{
   &:hover {
     box-shadow: ${(props) => props.theme.shadow.dark};
     background-color: ${(props) => {
-      if (props.buttonType === "outlined") return props.theme.colors.text;
+      if (props.buttontype === "outlined") return props.theme.colors.text;
       return props.theme.colors.primaryLight;
     }};
     border: ${(props) => {
-      if (props.buttonType === "outlined") {
+      if (props.buttontype === "outlined") {
         return `2px solid transparent`;
       }
       return "none";
@@ -63,5 +63,26 @@ export const ButtonComponent = styled.button<{
     padding: 0;
     margin: 0;
     font-size: ${(props) => props.theme.textSize.subTitle};
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: ${(props) => props.theme.shadow.dark};
+    background-color: ${(props) => {
+      if (props.buttontype === "outlined") {
+        return "transparent";
+      }
+      return props.backgroundcolor
+        ? props.backgroundcolor
+        : props.theme.colors.primaryDark;
+    }};
+    color: ${(props) => {
+      if (props.buttontype === "outlined")
+        return props.theme.colors.primaryDark;
+      return props.textcolor
+        ? props.textcolor
+        : props.theme.colors.primaryLight;
+    }};
   }
 `;

@@ -1,8 +1,8 @@
 import { Wrapper } from "./styles";
 import { Vendor } from "../../../types/vendor";
-import { ImageContainer } from "../../ServicesPage/SearchDisplayContainer/DisplaySection/SingleVendor/styles";
 import { useEffect, useState } from "react";
 import TextComponents from "../../../components/TextComponents";
+import { ImageContainer } from "../../ProfilePage/Vendors/SingleVendor/styles";
 
 type Props = {
   vendor: Vendor;

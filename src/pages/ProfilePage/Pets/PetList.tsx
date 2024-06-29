@@ -10,10 +10,12 @@ import { PetData } from "../../../redux/Profile/thunks/types/pet.types";
 
 export const PetList = ({ pets }: { pets: PetData[] | undefined }) => {
   const [isPetModalVisible, setIsPetModalVisible] = useState(false);
+  const theme = useTheme();
+
   if (!pets || pets?.length === 0) {
     return (
       <>
-        <PetContainer vertical>
+        <PetContainer vertical={true}>
           <TextComponents.Title accent>My pets</TextComponents.Title>
           <TextComponents.Body opposite>
             You don't have any pets yet. Click the button below to add one.
@@ -35,7 +37,6 @@ export const PetList = ({ pets }: { pets: PetData[] | undefined }) => {
       </>
     );
   }
-  const theme = useTheme();
   return (
     <>
       <div style={{ display: "flex", alignItems: "center" }}>

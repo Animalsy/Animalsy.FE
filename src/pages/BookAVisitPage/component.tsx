@@ -3,15 +3,18 @@ import PageTemplate from "../pageTemplate";
 import "react-datepicker/dist/react-datepicker.css";
 import Calendar from "../../components/Calendar";
 import { useLocation } from "react-router-dom";
-import { MutableRefObject, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { Button } from "../../components/Touchables/Buttons";
 import { Modal, Typography } from "@mui/material";
 import ServiceList from "../../components/Vendor/ServiceList";
 import useOnClickOutside from "../../hooks/clickOutside";
-import { Pet, Service, Vendor } from "../../types/vendor";
+import { Service, Vendor } from "../../types/vendor";
 import { useTheme } from "styled-components";
 import PetSelector from "../../components/PetSelector";
 import SingleService from "../../components/Vendor/ServiceList/SingleService";
+import { PetData } from "../../redux/Profile/thunks/types/pet.types";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { getProfile } from "../../redux/Profile/thunks/profile/GetProfile.thunk";
 
 type Props = {};
 
@@ -20,7 +23,15 @@ const BookAVisitPage = (_: Props) => {
     state: { vendor: Vendor; service: Service };
   };
 
-  const [selectedPet, setSelectedPet] = useState<Pet>();
+  const dispatch = useAppDispatch();
+  const { profile } = useAppSelector((state) => state.profile);
+  useEffect(() => {
+    if (!profile) {
+      //redirect to profile page
+      dispatch(getProfile());
+    }
+  }, [profile]);
+  const [selectedPet, setSelectedPet] = useState<PetData>();
   const [appointmentDate, setAppointmentDate] = useState<{
     date: string;
     hour: string;
@@ -38,7 +49,7 @@ const BookAVisitPage = (_: Props) => {
   const theme = useTheme();
 
   function bookAvisti({}: {
-    selectedPet: Pet | undefined;
+    selectedPet: PetData | undefined;
     selectedService: Service;
     appointmentDate: { date: string; hour: string };
   }) {
@@ -97,8 +108,21 @@ const BookAVisitPage = (_: Props) => {
           selectedPet={selectedPet}
           setSelectedPet={setSelectedPet}
         />
-        {/*  */}
+        <p>
+          {!selectedPet ||
+          !selectedService ||
+          !appointmentDate.date ||
+          !appointmentDate.hour
+            ? "true"
+            : "false"}
+        </p>
         <Button
+          disabled={
+            !selectedPet ||
+            !selectedService ||
+            !appointmentDate.date ||
+            !appointmentDate.hour
+          }
           style={{ alignSelf: "center" }}
           onClick={() => {
             bookAvisti({ selectedPet, selectedService, appointmentDate });

@@ -9,7 +9,7 @@ export interface ProfileInformationProps {
 }
 
 function ProfileInformation({ profile, openModal }: ProfileInformationProps) {
-  if (!profile) {
+  if (!profile || !profile.customer) {
     return (
       <Container>
         <TextComponents.Title>ProfileInformation</TextComponents.Title>

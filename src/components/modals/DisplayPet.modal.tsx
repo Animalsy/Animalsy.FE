@@ -158,7 +158,7 @@ export const DisplayPet = ({
           }}
         >
           <Button
-            buttonType="outlined"
+            buttontype="outlined"
             onClick={
               isEditModeEnabled
                 ? () => setIsEditModeEnabled(false)

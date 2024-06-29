@@ -3,7 +3,7 @@ export interface PetData {
     species: string,
     race: string,
     name: string,
-    dateOfBirth: Date,
+    dateOfBirth: string,
     imageUrl: string
     id: string
 }
@@ -14,6 +14,6 @@ export const initialPetData: PetData = {
     species: '',
     race: '',
     name: '',
-    dateOfBirth: new Date(),
+    dateOfBirth: "",
     imageUrl: ''
 }

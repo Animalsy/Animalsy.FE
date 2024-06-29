@@ -97,7 +97,7 @@ export const AddPetModal = ({
           justifyContent: "space-evenly",
         }}
       >
-        <Button buttonType="outlined" onClick={onClose}>
+        <Button buttontype="outlined" onClick={onClose}>
           Cancel
         </Button>
         <Button onClick={submitNewPet}>Add Pet</Button>

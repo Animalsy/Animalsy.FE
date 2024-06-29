@@ -19,15 +19,12 @@ export const StyledBurger = styled.button<{ open: boolean }>`
     outline: none;
   }
 
-  @media (min-width: ${AppSizes.breakpoints.medium}px) {
-    display: none;
-  }
-
+ 
   & > div {
     width: 100%;
     height: 0.25rem;
     background: ${({ theme, open }) =>
-      open ? theme.colors.accent : theme.colors.primaryDark};
+    open ? theme.colors.accent : theme.colors.primaryDark};
     border-radius: 10px;
     transition: all 0.2s linear;
     position: relative;
@@ -63,9 +60,6 @@ export const StyledMenu = styled.nav<{ open: boolean }>`
 
   @media (max-width: ${AppSizes.breakpoints.xSmall}px) {
     width: 100%;
-  }
-  @media (min-width: ${AppSizes.breakpoints.medium}px) {
-    display: none;
   }
 
   & > a {

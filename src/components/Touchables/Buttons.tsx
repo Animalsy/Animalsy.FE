@@ -11,18 +11,20 @@ export type ButtonType =
 
 export const Button = ({
   children,
-  backgroundColor,
-  buttonType = "none",
+  backgroundcolor,
+  buttontype = "none",
   onClick,
   style,
-  textColor,
+  textcolor,
+  disabled,
 }: {
   children: React.ReactNode;
-  buttonType?: ButtonType;
-  backgroundColor?: string;
-  textColor?: string;
+  buttontype?: ButtonType;
+  backgroundcolor?: string;
+  textcolor?: string;
   onClick?: ButtonHTMLAttributes<{}>["onClick"];
   style?: ButtonHTMLAttributes<{}>["style"];
+  disabled?: boolean;
 }) => {
   const RenderIcon = ({ type }: { type: ButtonType }) => {
     switch (type) {
@@ -35,10 +37,11 @@ export const Button = ({
   };
   return (
     <ButtonComponent
-      backgroundColor={backgroundColor}
-      textColor={textColor}
+      disabled={disabled}
+      backgroundcolor={backgroundcolor}
+      textcolor={textcolor}
       style={{ ...style }}
-      buttonType={buttonType}
+      buttontype={buttontype}
       onClick={
         onClick
           ? onClick
@@ -47,7 +50,7 @@ export const Button = ({
             }
       }
     >
-      <RenderIcon type={buttonType} />
+      <RenderIcon type={buttontype} />
       <p>{children}</p>
     </ButtonComponent>
   );

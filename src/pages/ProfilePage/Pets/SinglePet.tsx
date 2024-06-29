@@ -5,7 +5,15 @@ import { squareLogo } from "../../../assets/logo";
 import { DisplayPet } from "../../../components/modals/DisplayPet.modal";
 import { useState } from "react";
 
-export const SinglePet = ({ pet }: { pet: PetData }) => {
+export const SinglePet = ({
+  pet,
+  onpress,
+  selectedPet,
+}: {
+  pet: PetData;
+  onpress?: () => void;
+  selectedPet?: PetData | undefined;
+}) => {
   const [displayPetVisibility, setDisplayPetVisibility] = useState(false);
   const changeVisibility = () => {
     setDisplayPetVisibility(!displayPetVisibility);
@@ -13,9 +21,16 @@ export const SinglePet = ({ pet }: { pet: PetData }) => {
   return (
     <>
       <SinglePetContainer
-        onClick={() => {
-          setDisplayPetVisibility(true);
+        style={{
+          backgroundColor: pet?.id === selectedPet?.id ? "#f0f0f0" : "white",
         }}
+        onClick={
+          onpress
+            ? () => onpress()
+            : () => {
+                setDisplayPetVisibility(true);
+              }
+        }
       >
         <PetImage src={pet.imageUrl ? pet.imageUrl : squareLogo} />
         <TextComponents.Subtitle accent>
